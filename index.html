@@ -85,7 +85,7 @@
         	$('.cards').before($("<span>", {"class":'title'}).text("Daily Light"));
             $.ajax({
                 type: "GET",
-                url: "https://dl.dropboxusercontent.com/s/rkoqw1jlnz1zrlg/DailyLight.xml?dl=1",
+                url: "https://brentn.github.io/DailyLight/DailyLight.xml", //"https://dl.dropboxusercontent.com/s/rkoqw1jlnz1zrlg/DailyLight.xml?dl=1",
                 dataType: "xml",
                 success: function(xml) {
                     dailyLight = new DailyLight(xml);
