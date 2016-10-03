@@ -543,9 +543,11 @@
 		</day>
         <day date='October 3'>
 			<morning>
-				<heading version='KJV'></heading>
-                <text version='KJV'></text>
-				<references></references>
+				<heading version='KJV'>Unto him that loved us, and washed us from our sins in his own blood.</heading>
+                <text version='KJV'>Many waters cannot quench love, neither can the floods drown it. Love is strong as death. -Greater love hath no man than this, that a man lay down his life for his friends.
+				Who his own self bare our sins in his own body on the tree, that we, being dead to sins, should live unto righteousness: by whose stripes ye were healed. -In whom we have redemption through his blood, the forgiveness of sins, anccording to the riches of his grace.
+				Ye are washed, ...ye are sanctified, ...ye are justified in the name of the Lord Jesus, and by the Spirit of our God. -Ye are a chosen generation, a royal priesthood, an holy nation, a peculiar people; that ye should shew forth the praises of him who hath called you out of darkness into his marvellous light. -I beseech you ...brethren, by the mercies of God, that ye present your bodies a living sacrifice, holy, acceptable unto God, which is your reasonable service.</text>
+				<references>Rev 1:5; Ca 8:7,6; Jn 15:13; 1Pe 2:24; Eph 1:7; 1Co 6:11; 1Pe 2:9; Ro 12:1</references>
 			</morning>
 			<evening>
 				<heading version='KJV'></heading>
