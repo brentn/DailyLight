@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<data>
-	<version>kjv</version>
+<data version='KJV'>
 	<days>
 		<day date='September 1'>
 			<morning>
@@ -104,7 +103,7 @@
 			</morning>
 			<evening>
 				<heading>I am poor and needy; yet the Lord thinketh upon me.</heading>
-				<text>I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil. -My thoughts are not your thoughts, neither are your ways my ways, saith the Lord.  For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.	
+				<text>I know the thoughts that I think toward you, saith the Lord, thoughts of peace, and not of evil. -My thoughts are not your thoughts, neither are your ways my ways, saith the Lord.  For as the heavens are higher than the earth, so are my ways higher than your ways, and my thoughts than your thoughts.
 				How precious ...are thy thoughts unto me, O God!  how great is the sum of them! If I should count them, they are more in number than the sand: when I awake, I am still with thee. -Lord, how great aare thy works!  and thy thoughts are very deep. -Many, O Lord, my God, are thy wonderful works which thou hast done, and thy thoughts which are to us-ward.
 				Not many mighty, not many noble, are called. -Hath not God chosen the poor of this world rich in faith, and heirs of the kingdom? -Having nothing, and yet possessing all things. -The unsearchable riches of Christ.</text>
 				<references>Ps 40:17; Jer 29:11; Isa 55:8-9; Ps 139:17-18; Ps 92:5; Ps 40:5; 1Co 1:26; Jas 2:5; 2Co 6:10; Eph 3:8</references>
@@ -564,7 +563,7 @@
         <day date='October 6'>
 			<morning>
 				<heading>The Lord God omnipotent reigneth,</heading>
-                <text>I know that thou canst do everything. -The things which are impossible with men are possible with God. -He doeth according to his will in the army of heaven, and among the inhabitants of the earth: and none can stay his hand, or say unto him, What doest thou? -There is none that can deliver out of my hand: I will work, and who shall let it? -Abba, Father, all things are possible unto thee.
+                		<text>I know that thou canst do everything. -The things which are impossible with men are possible with God. -He doeth according to his will in the army of heaven, and among the inhabitants of the earth: and none can stay his hand, or say unto him, What doest thou? -There is none that can deliver out of my hand: I will work, and who shall let it? -Abba, Father, all things are possible unto thee.
 				Believe ye that I am able to do this?  They said unto him, Yea, Lord.  Then touched he their eyes, saying, According to your faith be it unto you. -Lord, if thou wilt, thou canst make me clean.  And Jesus put forth his hand, and touched him, saying, I will; be thou clean. -The mighty God. -All power is given unto me in heaven and earth.
 				Some trust in chariots, and some in horses: but we will remember the name of the LORD our God. -Be strong and courageous, be not afraid nor dismayed, ...there be more with us than with him.</text>
 				<references>Rev 19:6; Job 42:2; Lk 18:27; Da 4:35; Is 43:13; Mk 14:36; Mt 9:28-29; Mt 8:2-3; Is 9:6; Mt 28:18; Ps 20:7; 2Ch 32:7</references>
@@ -578,12 +577,12 @@
         <day date='October 7'>
 			<morning>
 				<heading>The meek will he teach his way</heading>
-                <text>Blessed are the meek.
-                	I returned, and saw under the sun, that the race is not to the swift, nor the battle to the strong, neither yet bread to the wise, nor yet riches to men of understanding, nor yet favour to men of skill. -A man's heart deviseth his way: but the LORD directeth his steps.
-                	Unto thee lift I up mine eyes, O thou that dwelleth in the heavens.  Behold as the eyes of servants look unto the hand of their masters, and as the eyes of a maiden unto the hand of her mistress; so our eyes wait upon the LORD our God. -Cause me to know the way wherein I should walk; for I lift up my soul unto thee.
-                	O our God, wilt thou not judge them? for we have no might against this great company that cometh against us; neither know we what to do: but our eyes are upon thee.
-                	If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.
-                	When he, the Spirit of truth, is come, he will guide you into all truth.</text>
+        		<text>Blessed are the meek.
+            	I returned, and saw under the sun, that the race is not to the swift, nor the battle to the strong, neither yet bread to the wise, nor yet riches to men of understanding, nor yet favour to men of skill. -A man's heart deviseth his way: but the LORD directeth his steps.
+            	Unto thee lift I up mine eyes, O thou that dwelleth in the heavens.  Behold as the eyes of servants look unto the hand of their masters, and as the eyes of a maiden unto the hand of her mistress; so our eyes wait upon the LORD our God. -Cause me to know the way wherein I should walk; for I lift up my soul unto thee.
+            	O our God, wilt thou not judge them? for we have no might against this great company that cometh against us; neither know we what to do: but our eyes are upon thee.
+            	If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him.
+            	When he, the Spirit of truth, is come, he will guide you into all truth.</text>
 				<references>Ps 25:9; Mt 5:5; Ecc9:11; Pr 16:9; Ps 123:1-2; Ps 143:8; 2Ch 20:12; Jas 1:5; Jn 16:13</references>
 			</morning>
 			<evening>
@@ -594,8 +593,52 @@
 		</day>
         <day date='October 8'>
 			<morning>
+				 will not fear what man shall do unto me.<heading></heading>
+        		<text>Who shall separate us from the love of Christ?  shall tribulation, or distress, or persecution, or famine, or nakedness, or peril, or sword?  Nay, in all these thinngs we are more than conquerors through him that loved us.
+				Be not afraid of them that kill the body, and after that have no more that they can do.  But I will forewarn you whom ye shall fear: Fear him, whicch after he hath killed hath power to cast into hell; yea, I say unto you, Fear him.
+				Blessed are they which are persecuted for righteousness' sake; for theirs is the kingdom of heaven.  Blessed are ye, when men shall revile you, and persecute you, and shall say all manner of evil against you falsely, for my sake.  Rejoice, and be exceeding glad; for great is your reward in heaven. -None of these things move me, neither count I my life dear unto myself, so that I might finish my course with joy. -I will speak of thy testimonies ...before kings, and will not be ashamed.</text>
+				<references>Heb 13:6; Ro 8:35,37; Lk 12:4-5; Mt 5:10-12; Ac 20:24; Ps 119:46</references>
+			</morning>
+			<evening>
+				<heading>He ...set my feet upon a rock.</heading>
+				<text>That Rock was Christ. -Simon Peter ...said, Thou art the Christ, the Son of the living God. ...Upon this rock I will build my church; and the gates of hell shall not prevail against it. -Neither is there salvation in any other: for there is none other name under heaven given among men, whereby we must be saved.
+				Full of assurance of faith.  Faith without wavering. -Faith, nothing wavering. ...He that wavereth is like a wave of the sea driven with the wind and tossed.
+				Who shall separate us from the love of Christ?  shall tribulation, or distress, or persecution, or famine, or nakedness, or peril, or sword?  Nay, in all these things we are more than conquerors through him that loved us.  For I am persuaded, that neither death, nor life, nor angels, nor principalities, nor powers, nor things present, nor things to come, nor height, nor depth, nor any other creture, shall be able to separate us from the love of God, which is in Christ Jesus our Lord.</text>
+				<references>Ps 40:2; 1Co 10:; Mt 16:16,18; Ac 4:12; Heb 10:22-23; Jas 1:6; Ro 8:35,37-39</references>
+			</evening>
+		</day>
+    <day date='October 9'>
+			<morning>
+				<heading>Thou art a God ready to pardon, gracious and merciful.</heading>
+                <text>The Lord is not slack concerning his promise, as some men count slackness; but is longsuffering to usward, not willing that any should perish, but that all should come to repentance. -The longsuffering of our Lord is salvation.
+            	For this cause I obtained mercy, that in me first Jesus Christ might shew forth all longsuffering for a pttern to them which should hereafter believe on him to life everlasting. -Whatsoever things were written aforetime were written for our learninng, that we through patience and comfort of the scriptures might have hope.
+            	Despisest thou the riches of his goodness and forbearance and longsuffering; not knowing that the goodness of God leadeth thee to repentance? -Rend your heart, and not your garments, and turn unto the LORD your God: for he is gracious and merciful, slow to anger, and of great kindness, and repenteth him of the evil.</text>
+				<references>Neh 9:17; 2Pe 3:9; 1Ti 1:16; Ro 15:4; Ro 2:4; Joel 2:13</references>
+			</morning>
+			<evening>
 				<heading></heading>
-                <text></text>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 10'>
+			<morning>
+				<heading>The words of the Lord are pure words.</heading>
+  			<text>Thy word is very pure: therefore thy servant loveth it. -The statutes of the LORD are right, rejoicing the heart: the commandment of the LORD is pure, enlightening the eyes. -Every word of God is pure: he is a shield unto them that put their trust in him.  Add thou not unto his words, lest he reprove thee, and thou be found a liar.
+      	Thy word have I hid in mine heart, that I might not sin against thee.  I will meditate in thy precepts, and have respect unto thy ways. -Brethren, whatsoever things are true, whatsoever things are honest, whatsoever things are just, whatsoever things are pure, whatsoever things are lovely, whatsoever things are of good report, if there be any virtue and if there be any praise, think on these things. -As newborn babes, desire the sincere milk of the word that ye may grow thereby.
+      	We are not as many, which corrupt the word of God: but as of sincerity, but as of God, in the sight of God speak we in Christ. -Nor handling the word of God deceitfully.</text>
+				<references>Ps 12:6; Ps 119:140; Ps 19:8; Pr 30:5-6; Ps 119:11; Php 4:8; 1Pe 2:2; 2Co 2:17; 2Co 4:2</references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 11'>
+			<morning>
+				<heading></heading>
+        <text></text>
 				<references></references>
 			</morning>
 			<evening>
@@ -604,10 +647,10 @@
 				<references></references>
 			</evening>
 		</day>
-        <day date='October 9'>
+		<day date='October 12'>
 			<morning>
 				<heading></heading>
-                <text></text>
+        <text></text>
 				<references></references>
 			</morning>
 			<evening>
@@ -616,10 +659,226 @@
 				<references></references>
 			</evening>
 		</day>
-        <day date='October 10'>
+		<day date='October 13'>
 			<morning>
 				<heading></heading>
-                <text></text>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 14'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 15'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 16'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 17'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 18'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 19'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 20'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 21'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 22'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 23'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 24'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 25'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 26'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 27'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 28'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 29'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 30'>
+			<morning>
+				<heading></heading>
+        <text></text>
+				<references></references>
+			</morning>
+			<evening>
+				<heading></heading>
+				<text></text>
+				<references></references>
+			</evening>
+		</day>
+		<day date='October 31'>
+			<morning>
+				<heading></heading>
+        <text></text>
 				<references></references>
 			</morning>
 			<evening>
@@ -630,4 +889,3 @@
 		</day>
 	</days>
 </data>
-	
