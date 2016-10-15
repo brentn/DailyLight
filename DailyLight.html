@@ -20,8 +20,10 @@
     var dayOfYear = function(date) {
        return Math.round((new Date() - new Date(date.getFullYear(), 0, 0)) / 86400000);
     }
-    var dateFromDay = function(day) {
-       return new Date((new Date(thisYear, 0)).setDate(day));
+    var dayString = function(day) {
+       var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+       var date = new Date((new Date(thisYear, 0)).setDate(day));
+       return monthNames[date.getMonth()]+' '+date.getDate();
     }
     if (localStorage.lastDateRead && localStorage.lastOpened) {
         DOY = localStorage.lastDateRead;
@@ -38,9 +40,7 @@
       document.getElementsByClassName("morn_eve")[0].innerHTML=morn_eve;
     }
     function setDay(day) {
-      var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
-      var date = dateFromDay(day);
-      document.getElementsByClassName("Date")[0].innerHTML=monthNames[date.getMonth()]+' '+date.getDate();
+      document.getElementsByClassName("Date")[0].innerHTML=dayString(day);
       document.getElementsByClassName("datepicker")[0].value=day;
       setMorning();
       DOY=day;
@@ -51,10 +51,12 @@
       if (!data) return;
       setDay(day);
       var item;
+      console.log(data);
+      item = data.days.day.filter(function(block) {return block.date==dateString(day);})
       if (morn_eve=='morning')
-        { item = data[DOY-1].morning }
+        { item = item.morning }
       else
-        { item = data[DOY-1].evening };
+        { item = item.evening };
       document.getElementsByClassName("heading")[0].innerHTML=item.heading;
       document.getElementsByClassName("references")[0].innerHTML=item.references;
       document.getElementById("verses").innerHTML='';
