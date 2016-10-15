@@ -1,0 +1,92 @@
+<html>
+<head>
+  <style>body{padding:20px 0 30px;font:14px/1.5 Arial,sans-serif;color:#333;background:#3c0}.title{font-size:3em;position:relative;display:block;margin-bottom:5px;margin-left:50px;color:#279602;font-weight:800;height:10px;z-index:1}.card{max-width:600px;right:10px;left:10px;-moz-border-radius:10px;border-radius:10px;padding:1em;margin:2em 10px 4em;font-size:16px;background-color:#eef7cd;-webkit-box-shadow:4px 4px 8px;-moz-box-shadow:0 1px 4px rgba(0,0,0,.3) box-shadow:4px 8px 8px rgba(0,0,0,.3)}.card .date{font-size:x-large;float:left}.card .morn_eve{font-size:large;padding-right:20px;float:right}.card .datepicker{width:100%}.card input.datepicker:focus{outline:none}.card .heading{font-size:1.1em;font-weight:700;text-align:center;margin-bottom:10px}.card .text{color:darkslategray;font-weight:400;text-indent:40px;white-space:pre-line}.card .references{font-style:italic;color:darkgrey;font-size:small;margin-top:10px;margin-bottom:10px}.card .missing{height:200px;padding-top:140px;font-size:large;text-align:center}.card p.text{-webkit-animation:fadein 1s;-moz-animation:fadein 1s;animation:fadein 1s}@keyframes fadein{from{opacity:0}to{opacity:1}}@-moz-keyframes fadein{from{opacity:0}to{opacity:1}}@-webkit-keyframes fadein{from{opacity:0}to{opacity:1}}</style>
+</head>
+<body>
+  <span class='title'>Daily Light</span>
+  <div class='card'>
+    <div class='date'></div>
+    <div class='morn_eve'></div>
+    <div style='clear:both;'></div>
+    <input type='range' min='1' max='366' class='datepicker' autofocus oninput='load(this.value);' />
+    <div class='heading'></div>
+    <div id='verses'></div>
+    <div class='references'></div>
+  </div>
+  <script type='text/javascript'>
+    var DOY;
+    var morn_eve=new Date().getHours()<17?'morning':'evening';
+    var thisYear = new Date().getFullYear();
+    var dayOfYear = function(date) {
+       return Math.round((new Date() - new Date(date.getFullYear(), 0, 0)) / 86400000);
+    }
+    var dateFromDay = function(day) {
+       return new Date((new Date(thisYear, 0)).setDate(day));
+    }
+    if (localStorage.lastDateRead && localStorage.lastOpened) {
+        DOY = localStorage.lastDateRead;
+        //if already opened today, show same day, otherwise increment
+        if (localStorage.lastOpened != dayOfYear(new Date())) {
+            console.debug('not opened today, incrementing card')
+            morn_eve='morning'
+            DOY+=1;
+        }
+    } else {
+        DOY = dayOfYear(new Date());
+    }
+    function setMorning() {
+      document.getElementsByClassName("morn_eve")[0].innerHTML=morn_eve;
+    }
+    function setDay(day) {
+      var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
+      var date = dateFromDay(day);
+      document.getElementsByClassName("Date")[0].innerHTML=monthNames[date.getMonth()]+' '+date.getDate();
+      document.getElementsByClassName("datepicker")[0].value=day;
+      setMorning();
+      DOY=day;
+    }
+    if (DOY) setDay(DOY);
+    var data;
+    function loadDay(day) {
+      if (!data) return;
+      setDay(day);
+      var item;
+      if (morn_eve=='morning')
+        { item = data[DOY-1].morning }
+      else
+        { item = data[DOY-1].evening };
+      document.getElementsByClassName("heading")[0].innerHTML=item.heading;
+      document.getElementsByClassName("references")[0].innerHTML=item.references;
+      document.getElementById("verses").innerHTML='';
+      item.text.split('\n').forEach(function(verse) {
+        var el = document.createElement('p');
+        el.className='text'
+        el.innerHTML=verse;
+        verses.appendChild(el);
+      });
+    }
+    var getJSON = function(url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open("get", url, true);
+      xhr.responseType = "json";
+      xhr.onload = function() {
+        var status = xhr.status;
+        if (status == 200) {
+          callback(null, xhr.response);
+        } else {
+          callback(status);
+        }
+      };
+      xhr.send();
+    };
+    getJSON('https://brentn.github.io/DailyLight/DailyLight.json', function(err, result) {
+      if (err!=null) {
+        console.error('Error loading data');
+        data=undefined;
+      }
+      data=result;
+      loadDay(DOY);
+    })
+  </script>
+</body>
+</html>
