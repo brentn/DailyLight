@@ -6,21 +6,23 @@
   <span class='title'>Daily Light</span>
   <div class='card'>
     <div class='date'></div>
-    <div class='morn_eve'></div>
+    <div class='morn_eve' onclick='toggleMorning()'></div>
     <div style='clear:both;'></div>
-    <input type='range' min='1' max='366' class='datepicker' autofocus oninput='load(this.value);' />
+    <input type='range' min='1' max='366' class='datepicker' autofocus oninput='loadDay(this.value);' />
     <div class='heading'></div>
     <div id='verses'></div>
+    <div class='missing'>Missing content</div>
     <div class='references'></div>
   </div>
   <script type='text/javascript'>
     var DOY;
     var morn_eve=new Date().getHours()<17?'morning':'evening';
     var thisYear = new Date().getFullYear();
+    var missing = document.getElementsByClassName('missing')[0];
     var dayOfYear = function(date) {
-       return Math.round((new Date() - new Date(date.getFullYear(), 0, 0)) / 86400000);
+       return Math.floor((new Date() - new Date(date.getFullYear(), 0, 0)) / 86400000);
     }
-    var dayString = function(day) {
+    var dateString = function(day) {
        var monthNames = ["January", "February", "March", "April", "May", "June","July", "August", "September", "October", "November", "December"];
        var date = new Date((new Date(thisYear, 0)).setDate(day));
        return monthNames[date.getMonth()]+' '+date.getDate();
@@ -36,11 +38,16 @@
     } else {
         DOY = dayOfYear(new Date());
     }
+    function toggleMorning() {
+      morn_eve = morn_eve=='morning'?'evening':'morning';
+      setMorning();
+      loadDay(DOY);
+    }
     function setMorning() {
       document.getElementsByClassName("morn_eve")[0].innerHTML=morn_eve;
     }
     function setDay(day) {
-      document.getElementsByClassName("Date")[0].innerHTML=dayString(day);
+      document.getElementsByClassName("Date")[0].innerHTML=dateString(day);
       document.getElementsByClassName("datepicker")[0].value=day;
       setMorning();
       DOY=day;
@@ -48,24 +55,38 @@
     if (DOY) setDay(DOY);
     var data;
     function loadDay(day) {
+      missing.style.display='none';
+      document.getElementsByClassName("heading")[0].innerHTML='';
+      document.getElementsByClassName("references")[0].innerHTML='';
+      document.getElementById("verses").innerHTML='';
       if (!data) return;
       setDay(day);
       var item;
-      console.log(data);
-      item = data.days.day.filter(function(block) {return block.date==dateString(day);})
-      if (morn_eve=='morning')
-        { item = item.morning }
-      else
-        { item = item.evening };
-      document.getElementsByClassName("heading")[0].innerHTML=item.heading;
-      document.getElementsByClassName("references")[0].innerHTML=item.references;
-      document.getElementById("verses").innerHTML='';
-      item.text.split('\n').forEach(function(verse) {
-        var el = document.createElement('p');
-        el.className='text'
-        el.innerHTML=verse;
-        verses.appendChild(el);
-      });
+      item = data.days.day.filter(function(block) {return block._date==dateString(day);})
+      if (item.length>0) {
+        if (morn_eve=='morning') {
+          item = item[0].morning
+        } else {
+          item = item[0].evening };
+        document.getElementsByClassName("heading")[0].innerHTML=item.heading;
+        document.getElementsByClassName("references")[0].innerHTML=item.references;
+        document.getElementById("verses").innerHTML='';
+        if (item.references.length>0) {
+          document.getElementsByClassName("heading")[0].innerHTML=item.heading;
+          document.getElementsByClassName("references")[0].innerHTML=item.references;
+          document.getElementById("verses").innerHTML='';
+          item.text.split('\n').forEach(function(verse) {
+            var el = document.createElement('p');
+            el.className='text'
+            el.innerHTML=verse;
+            verses.appendChild(el);
+          });
+        } else {
+          missing.style.display='block';
+        }
+      } else {
+        missing.style.display='block';
+      }
     }
     var getJSON = function(url, callback) {
       var xhr = new XMLHttpRequest();
