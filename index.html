@@ -81,6 +81,8 @@
             el.innerHTML=verse;
             verses.appendChild(el);
           });
+          localStorage.lastDateRead = DOY;
+          localStorage.lastOpened = new Date();
         } else {
           missing.style.display='block';
         }
