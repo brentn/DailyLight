@@ -62,7 +62,7 @@
       if (!data) return;
       setDay(day);
       var item;
-      item = data.days.day.filter(function(block) {return block._date==dateString(day);})
+      item = data.days.day.filter(function(block) {return block.date==dateString(day);})
       if (item.length>0) {
         if (morn_eve=='morning') {
           item = item[0].morning
