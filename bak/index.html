@@ -1,0 +1,116 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script   src="https://code.jquery.com/jquery-2.2.4.min.js"   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="   crossorigin="anonymous"></script>
+    <style>body{padding:20px 0 30px;font:14px/1.5 Arial, sans-serif;color:#333;background:cornflowerblue;}.title{font-size: 3em;position: relative;display: block;margin-bottom: 5px;margin-left: 50px;color: #3578f3;font-weight: 800;height: 10px;z-index: 1;}.card{max-width:600px;right:10px;left:10px;-moz-border-radius:10px;border-radius:10px;}.card .date{font-size:x-large;float:left;}.card .morn_eve{font-size:large;padding-right:20px;float:right;}.card .datepicker{width:100%}.card .heading {font-size:1.1em;font-weight:bold;text-align:center;margin-bottom:10px;}.card .text{font-weight:normal;text-indent:40px;white-space:pre-line;}.card .references {font-style:italic;color:darkgrey;font-size:small;margin-top:10px;margin-bottom:10px;float:left}.card .version{color:#3578f3;margin-top:10px;margin-right:10px;float:right;}.card .missing {height:200px;padding-top:140px;font-size:large;text-align:center;}.drop-shadow {position:absolute;float:left;padding:1em; margin:2em 10px 4em;background:#fff;-webkit-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;-moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;}.drop-shadow:before,.drop-shadow:after {content:"";position:absolute;z-index:-2;}.drop-shadow p {font-size:16px;font-weight:bold;}.lifted:before,.lifted:after {bottom:15px;left:10px;width:50%;height:20%;max-width:300px;-webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);-moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);-webkit-transform:rotate(-3deg);-moz-transform:rotate(-3deg);-ms-transform:rotate(-3deg);-o-transform:rotate(-3deg);transform:rotate(-3deg);}.lifted:after {right:10px;left:auto;-webkit-transform:rotate(3deg);-moz-transform:rotate(3deg);-ms-transform:rotate(3deg);-o-transform:rotate(3deg);transform:rotate(3deg);}      
+    </style>
+</head>
+<body>
+    <div class='cards'>
+    </div>
+    <script>
+        var monthNames = [
+          "January", "February", "March",
+          "April", "May", "June", "July",
+          "August", "September", "October",
+          "November", "December"
+        ];
+        var dailyLight;
+
+        class DailyLight {
+            constructor(xml) {
+                this.xml = xml;
+                this.version = 'KJV';
+            }
+            dayOfYear(date) {
+            	var jan1 = new Date(date.getFullYear(), 0, 0);
+            	return Math.floor((date-jan1) / 86400000);
+            }
+            static ordDate(dayOfYear) {
+            	var jan1 = new Date(new Date().getFullYear(), 0, 1);
+            	return new Date(jan1.setDate(dayOfYear));
+            }
+            buildCard(date, morning) {
+                var $card = $("<div>", {"class": 'card drop-shadow'});
+                var dateString = monthNames[date.getMonth()] + " " + date.getDate();
+                var day = $(this.xml).find('day[date="' + dateString + '"]');""
+                var tomorrow = new Date(date.getTime()).setDate(date.getDate()+1);
+                $card.append($("<div>", {"type":'text', "class": 'date'}).text(dateString));
+                $card.append($("<div>", {"class":'morn_eve',
+                             "onclick":'dailyLight.load(new Date("'+date+'"),'+!morning+');'
+                              }).text(morning?"morning":"evening"));
+                $card.append($("<div>", {"style":'clear:both'}));
+                $card.append($("<input>", {type:"range",
+                             "min":1,
+                             "max":366,
+                             "step":1,
+                             "oninput":"var newDate = DailyLight.ordDate(this.value);"
+                             + "$('.date').text(monthNames[newDate.getMonth()]+' '+newDate.getDate());",
+                             "onchange":"dailyLight.load(new Date($('.date').text()), "+morning+")",
+                             "class":'datepicker'}).val(this.dayOfYear(date)));
+                if (day.length>0) {
+                    var section = $(day).find(morning?"morning":"evening");
+                    if (section.length>0 && $(section).find('text').text().length>0) {
+                        if ($(section).find('heading[version="'+this.version+'"]').length>0) {
+                            $card.append($("<div>", {"class":'heading'}).text($(section).find('heading[version="'+this.version+'"]').text()));
+                            //var $text = $("<div>", {"class":'text'});
+                            var lines = $(section).find('text[version="'+this.version+'"]').text().split('\n')
+                            $.each(lines, function(x, line) {
+                                $card.append($("<p>", {"class":'text'}).text(line))
+                            });
+                            //$card.append($text);
+                            $card.append($("<hr/>"));
+                            $card.append($("<div>", {"class":'references'}).text($(section).find('references').text()));
+                            $card.append($("<div>",{"class":'version'}).text(this.version));
+                            return $card;
+                        }
+                    }
+                }
+                $card.append("<div class='missing'>Missing content</div>");
+                return $card;
+            }
+            load(date, morning) {
+                $('.card').addClass('old');
+                $('.card').removeClass('lifted');
+                $('.old').fadeOut(1000, function() { $('.old').remove(); });
+                var newCard = this.buildCard(date, morning).css({'opacity':0});
+                $('.cards').append(newCard);
+                $('.card').animate({'opacity':1}, 800, function() {$('.card').addClass('lifted');});
+                localStorage.lastDateRead = date;
+                localStorage.lastOpened = new Date();
+            }
+        }
+
+        $(document).ready(function() {
+        	$('.cards').before($("<span>", {"class":'title'}).text("Daily Light"));
+            $.ajax({
+                type: "GET",
+                url: "https://brentn.github.io/DailyLight/DailyLight.xml", //"https://dl.dropboxusercontent.com/s/rkoqw1jlnz1zrlg/DailyLight.xml?dl=1",
+                dataType: "xml",
+                success: function(xml) {
+                    dailyLight = new DailyLight(xml);
+                    var date;
+                    if (localStorage.lastDateRead && localStorage.lastOpened) {
+                        date = new Date(localStorage.lastDateRead);
+                        //if already opened today, show same day, otherwise increment 
+                        if (new Date(localStorage.lastOpened).setHours(0,0,0,0) != new Date().setHours(0,0,0,0)) {
+                            console.debug('not opened today, incrementing card')
+                            date.setDate(date.getDate()+1);
+                        } else {
+                            console.debug('already opened today.  Showing same card');
+                        }
+                    } else {
+                        console.debug('no cookies found');
+                        date = new Date();
+                    }
+                    var morning = date.getHours()<17;
+                    dailyLight.load(date, morning);
+                },
+                error: function(xhr, status) {
+                    console.error(status);
+                }
+            });
+        })
+    </script>
+</body>
+</html>
