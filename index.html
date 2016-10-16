@@ -34,7 +34,7 @@
             console.debug('not opened today, incrementing card')
             morn_eve='morning'
             DOY+=1;
-        }
+        } 
     } else {
         DOY = dayOfYear(new Date());
     }
@@ -82,7 +82,7 @@
             verses.appendChild(el);
           });
           localStorage.lastDateRead = DOY;
-          localStorage.lastOpened = new Date();
+          localStorage.lastOpened = dayOfYear(new Date());
         } else {
           missing.style.display='block';
         }
