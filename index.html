@@ -28,8 +28,8 @@
        var date = new Date((new Date(thisYear, 0)).setDate(day));
        return monthNames[date.getMonth()]+' '+date.getDate();
     }
-    if (localStorage.lastDateRead && localStorage.lastOpened) {
-        DOY = localStorage.lastDateRead;
+    if (localStorage.lastDOYRead && localStorage.lastOpened) {
+        DOY = localStorage.lastDOYRead;
         //if already opened today, show same day, otherwise increment
         if (localStorage.lastOpened != dayOfYear(new Date())) {
             console.debug('not opened today, incrementing card')
@@ -38,6 +38,8 @@
         }
     } else {
         DOY = dayOfYear(new Date());
+        localStorage.lastDOYRead = DOY;
+        localStorage.lastOpened = DOY;
     }
     function toggleMorning() {
       morn_eve = morn_eve=='morning'?'evening':'morning';
@@ -81,7 +83,7 @@
             el.innerHTML=verse.replace('LORD','<span class="lord">LORD</span>');
             verses.appendChild(el);
           });
-          localStorage.lastDateRead = DOY;
+          localStorage.lastDOYRead = DOY;
           localStorage.lastOpened = dayOfYear(new Date());
         } else {
           missing.style.display='block';
