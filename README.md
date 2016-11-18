@@ -1,2 +1,0 @@
-# DailyLight
-Daily Light devotional
