@@ -1,9 +1,11 @@
 CACHE MANIFEST
 
-# Version: 0.004
+# Version: 0.005
 
 CACHE:
 index.html
+style.css
+script.js
 DailyLight.json
 icon.png
 favicon.png
