@@ -66,26 +66,24 @@
     morn_eve = morn_eve==='morning'?'evening':'morning';
     setMorning();
     loadDay(DOY);
-  }
+  };
   var dateChanged = function(evt) {
     var doy = evt.target.value;
     loadDay(doy);
-  }
+  };
 
   // Main
-  document.getElementsByClassName('morn_eve').addEventListener('click', toggleMorning);
-  document.getElementsByClassName('datepicker').addEventListener('input', dateChanged);
   DOY = dayOfYear(new Date());
   if (localStorage) {
     if (localStorage.lastDOYRead && localStorage.lastOpened) {
         DOY = localStorage.lastDOYRead;
         //if already opened today, show same day, otherwise increment
-        if (localStorage.lastOpened !== dayOfYear(new Date())) {
+        if (localStorage.lastOpened != dayOfYear(new Date())) {
           document.getElementById('log').innerHTML = 'next day '+DOY;
             console.debug('not opened today, incrementing card');
             morn_eve='morning';
             console.log('Day of year::',DOY);
-            DOY+=1;
+            DOY++;
             if (DOY>366) { DOY=1; }
         } else {
           document.getElementById('log').innerHTML = 'same day';
@@ -109,7 +107,7 @@
     };
     xhr.send();
   };
-  getJSON('https://brentn.github.io/DailyLight/DailyLight.json', function(err, result) {
+  getJSON('/DailyLight.json', function(err, result) {
     if (err!==null) {
       console.error('Error loading data');
       data=undefined;
@@ -117,4 +115,6 @@
     data=result;
     loadDay(DOY);
   });
+  document.getElementsByClassName('morn_eve')[0].addEventListener('click', toggleMorning);
+  document.getElementsByClassName('datepicker')[0].addEventListener('input', dateChanged);
 })();
