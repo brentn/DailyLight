@@ -1,10 +1,10 @@
 CACHE MANIFEST
 
-# Version: 0.011
+# Version: 0.012
 
 CACHE:
 index.html
-style.css
+styles.css
 script.js
 DailyLight.json
 icon.png
