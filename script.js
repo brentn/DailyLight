@@ -107,7 +107,7 @@
     };
     xhr.send();
   };
-  getJSON('/DailyLight.json', function(err, result) {
+  getJSON('DailyLight.json', function(err, result) {
     if (err!==null) {
       console.error('Error loading data');
       data=undefined;
