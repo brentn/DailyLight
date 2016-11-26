@@ -20,6 +20,7 @@
     <div id='verses'></div>
     <div class='missing'>Missing content</div>
     <div class='references'></div>
+    <div class='log'></div>
   </div>
   <script type='text/javascript'>
     var morn_eve=new Date().getHours()<17?'morning':'evening';
@@ -39,11 +40,14 @@
           DOY = localStorage.lastDOYRead;
           //if already opened today, show same day, otherwise increment
           if (localStorage.lastOpened != dayOfYear(new Date())) {
+              $('.log').text('next day: '+DOY);
               console.debug('not opened today, incrementing card')
               morn_eve='morning'
               console.log('Day of year::',DOY);
-              DOY++;
-              if (DOY>366) DOY=1;
+              DOY+=1;
+              if (DOY>366) { DOY=1 };
+          } else {
+            $('.log').text('same day');
           }
       }
       localStorage.lastDOYRead = DOY;
