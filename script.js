@@ -62,12 +62,12 @@
       missing.style.display='block';
     }
   }
-  function toggleMorning() {
+  var toggleMorning = function() {
     morn_eve = morn_eve==='morning'?'evening':'morning';
     setMorning();
     loadDay(DOY);
   }
-  function dateChanged(evt) {
+  var dateChanged = function(evt) {
     var doy = evt.target.value;
     loadDay(doy);
   }
