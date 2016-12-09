@@ -79,14 +79,11 @@
         DOY = localStorage.lastDOYRead;
         //if already opened today, show same day, otherwise increment
         if (localStorage.lastOpened != dayOfYear(new Date())) {
-          document.getElementById('log').innerHTML = 'next day '+DOY;
             console.debug('not opened today, incrementing card');
             morn_eve='morning';
             console.log('Day of year::',DOY);
             DOY++;
             if (DOY>366) { DOY=1; }
-        } else {
-          document.getElementById('log').innerHTML = 'same day';
         }
     }
     localStorage.lastDOYRead = DOY;
