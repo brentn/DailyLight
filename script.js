@@ -109,7 +109,6 @@
       console.error('Error loading data:' + err);
       data=undefined;
     }
-    console.log('loaded: '+result)
     data=result;
     loadDay(DOY);
   });
