@@ -106,7 +106,7 @@
   };
   getJSON('DailyLight.json', function(err, result) {
     if (err!==null) {
-      console.error('Error loading data');
+      console.error('Error loading data:' + err);
       data=undefined;
     }
     data=result;
