@@ -73,6 +73,7 @@
   };
   var changeDOY = function(delta) {
     DOY = (DOY + delta + 366) % 366;
+    console.log(DOY);
     loadDay(DOY);
   };
 
