@@ -73,6 +73,7 @@
   };
   var changeDOY = function(delta) {
     DOY = (DOY + delta + 366) % 366;
+    if (isNaN(DOY)) {DOY = 1;}
     console.log(delta, DOY);
     loadDay(DOY);
   };
@@ -119,8 +120,8 @@
   });
   document.getElementsByClassName('morn_eve')[0].addEventListener('click', toggleMorning);
   document.getElementsByClassName('datepicker')[0].addEventListener('input', dateChanged);
-  document.body.addEventListener('swl', changeDOY(-1), false);
-  document.body.addEventListener('swr', changeDOY(1), false);
+  // document.body.addEventListener('swl', changeDOY(-1), false);
+  // document.body.addEventListener('swr', changeDOY(1), false);
 })();
 
 
