@@ -118,8 +118,8 @@
   });
   document.getElementsByClassName('morn_eve')[0].addEventListener('click', toggleMorning);
   document.getElementsByClassName('datepicker')[0].addEventListener('input', dateChanged);
-  document.getElementsByClassName('card')[0].addEventListener('swl', changeDOY(-1), false);
-  document.getElementsByClassName('card')[0].addEventListener('swr', changeDOY(1), false);
+  document.body.addEventListener('swl', changeDOY(-1), false);
+  document.body.addEventListener('swr', changeDOY(1), false);
 })();
 
 
