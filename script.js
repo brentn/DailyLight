@@ -163,7 +163,8 @@
   });
   document.getElementsByClassName('morn_eve')[0].addEventListener('click', toggleMorning);
   document.getElementsByClassName('datepicker')[0].addEventListener('input', dateChanged);
-  document.body.addEventListener('mousedown', mouseDown, false);
-  document.body.addEventListener('mousemove', mouseMove, false);
-  document.body.addEventListener('mouseup', mouseUp, false);
+  document.body.addEventListener('touchstart', mouseDown, false);
+  document.body.addEventListener('touchmove', mouseMove, false);
+  document.body.addEventListener('touchend', mouseUp, false);
+  document.body.addEventListener('touchcancel', mouseUp, false);
 })();
