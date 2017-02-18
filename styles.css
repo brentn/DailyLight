@@ -20,6 +20,7 @@ body {
 }
 
 .card {
+    position: relative;
     max-width: 600px;
     right: 10px;
     left: 10px;
@@ -31,6 +32,22 @@ body {
     background-color: #e8ebf9;
     -webkit-box-shadow: 4px 4px 8px;
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .3) box-shadow: 4px 8px 8px rgba(0, 0, 0, .3)
+}
+
+.card.swipe.right {
+  left : 1000px;
+  opacity: 0;
+  transition: left .5s, opacity .5s;
+}
+.card.swipe.left {
+  margin-left : -1000px;
+  opacity: 0;
+  transition: margin-left .5s, opacity .5s;
+}
+.card.swipe.back {
+  left : 0px;
+  opacity: 0;
+  transition: left .5s, opacity .5s;
 }
 
 .card .date {

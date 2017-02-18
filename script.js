@@ -2,6 +2,9 @@
   'use strict';
 
   var data;
+  var min_swipe_distance = 10;
+  var mid = document.getElementsByClassName('card')[0].getBoundingClientRect().width/2;
+  var swipe={page:null};
   var DOY;
   var morn_eve=new Date().getHours()<17?'morning':'evening';
   var thisYear = new Date().getFullYear();
@@ -73,10 +76,50 @@
   };
   var changeDOY = function(delta) {
     DOY = (DOY + delta + 366) % 366;
-    if (isNaN(DOY)) {DOY = 1;}
-    console.log(delta, DOY);
     loadDay(DOY);
   };
+  var mouseDown = function(event) {
+    if (swipe.page === null) {
+      swipe.x = event.clientX;
+      swipe.y = event.clientY;
+      swipe.direction = (event.clientX>mid?"left":"right");
+      var card = document.getElementsByClassName('card')[0];
+      swipe.page = card.cloneNode(true);
+      swipe.page.className += " swipe"
+      swipe.page.style.position = "absolute";
+      swipe.page.style.zIndex = "2";
+      document.body.insertBefore(swipe.page, card);
+      event.preventDefault();
+    }
+  }
+  var mouseMove = function(event) {
+    var distance = Math.abs(swipe.x - event.clientX);
+    if (swipe.page != null && distance > min_swipe_distance) {
+      if (swipe.direction==="left" && event.clientX < swipe.x) {
+        swipe.page.style.left = -distance + "px";
+      }
+      // if (swipe.direction==="right" && event.clientX > swipe.x) {
+      //   swipe.page.style.left = distance+"px";
+      // }
+    }
+  }
+  var mouseUp = function(event) {
+    var distance = Math.abs(swipe.x - event.clientX);
+    if (swipe.page != null) {
+      if (distance > mid) {
+        swipe.page.className += " "+swipe.direction;
+        changeDOY(1);
+      } else {
+        swipe.page.style.left = null;
+        swipe.page.className += " back";
+      }
+      swipe.direction="";
+      setTimeout(function() {
+        document.body.removeChild(swipe.page);
+        swipe.page=null;
+      }, 600);
+    }
+  }
 
   // Main
   DOY = dayOfYear(new Date());
@@ -120,21 +163,7 @@
   });
   document.getElementsByClassName('morn_eve')[0].addEventListener('click', toggleMorning);
   document.getElementsByClassName('datepicker')[0].addEventListener('input', dateChanged);
-  // document.body.addEventListener('swl', changeDOY(-1), false);
-  // document.body.addEventListener('swr', changeDOY(1), false);
+  document.body.addEventListener('mousedown', mouseDown, false);
+  document.body.addEventListener('mousemove', mouseMove, false);
+  document.body.addEventListener('mouseup', mouseUp, false);
 })();
-
-
-
-(function(d){
- var
- ce=function(e,n){var a=document.createEvent("CustomEvent");a.initCustomEvent(n,true,true,e.target);e.target.dispatchEvent(a);a=null;return false},
- nm=true,sp={x:0,y:0},ep={x:0,y:0},
- touch={
-  touchstart:function(e){sp={x:e.touches[0].pageX,y:e.touches[0].pageY}},
-  touchmove:function(e){nm=false;ep={x:e.touches[0].pageX,y:e.touches[0].pageY}},
-  touchend:function(e){if(nm){ce(e,'fc')}else{var x=ep.x-sp.x,xr=Math.abs(x),y=ep.y-sp.y,yr=Math.abs(y);if(Math.max(xr,yr)>20){ce(e,(xr>yr?(x<0?'swl':'swr'):(y<0?'swu':'swd')))}};nm=true},
-  touchcancel:function(e){nm=false}
- };
- for(var a in touch){d.addEventListener(a,touch[a],false);}
-})(document);
