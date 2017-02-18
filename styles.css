@@ -40,9 +40,9 @@ body {
   transition: left .5s, opacity .5s;
 }
 .card.swipe.left {
-  margin-left : -1000px;
+  left : -1000px;
   opacity: 0;
-  transition: margin-left .5s, opacity .5s;
+  transition: left .5s, opacity .5s;
 }
 .card.swipe.back {
   left : 0px;

@@ -3,7 +3,8 @@
 
   var data;
   var min_swipe_distance = 10;
-  var mid = document.getElementsByClassName('card')[0].getBoundingClientRect().width/2;
+  var width = document.getElementsByClassName('card')[0].getBoundingClientRect().width;
+  var mid = width/2;
   var swipe={page:null};
   var DOY;
   var morn_eve=new Date().getHours()<17?'morning':'evening';
@@ -80,12 +81,13 @@
   };
   var mouseDown = function(event) {
     if (swipe.page === null) {
-      swipe.x = event.clientX;
-      swipe.y = event.clientY;
-      swipe.direction = (event.clientX>mid?"left":"right");
+      swipe.x = event.touches[0].clientX;
+      swipe.y = event.touches[0].clientY;
+      swipe.direction = (event.touches[0].clientX>mid?"left":"right");
       var card = document.getElementsByClassName('card')[0];
       swipe.page = card.cloneNode(true);
       swipe.page.className += " swipe"
+      swipe.page.style.width = width + "px";
       swipe.page.style.position = "absolute";
       swipe.page.style.zIndex = "2";
       document.body.insertBefore(swipe.page, card);
@@ -93,9 +95,9 @@
     }
   }
   var mouseMove = function(event) {
-    var distance = Math.abs(swipe.x - event.clientX);
+    var distance = Math.abs(swipe.x - event.touches[0].clientX);
     if (swipe.page != null && distance > min_swipe_distance) {
-      if (swipe.direction==="left" && event.clientX < swipe.x) {
+      if (swipe.direction==="left" && event.touches[0].clientX < swipe.x) {
         swipe.page.style.left = -distance + "px";
       }
       // if (swipe.direction==="right" && event.clientX > swipe.x) {
@@ -104,13 +106,13 @@
     }
   }
   var mouseUp = function(event) {
-    var distance = Math.abs(swipe.x - event.clientX);
+    var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
     if (swipe.page != null) {
+      swipe.page.style.left = null;
       if (distance > mid) {
         swipe.page.className += " "+swipe.direction;
         changeDOY(1);
       } else {
-        swipe.page.style.left = null;
         swipe.page.className += " back";
       }
       swipe.direction="";
