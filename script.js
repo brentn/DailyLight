@@ -73,6 +73,8 @@
     } else {
       missing.style.display='block';
     }
+    var height = document.getElementsByClassName('card')[0].getBoundingClientRect().height;
+    document.getElementById('swipe').style.height = height;
   }
   var toggleMorning = function() {
     morn_eve = morn_eve==='morning'?'evening':'morning';
@@ -143,7 +145,7 @@
   }
   var touchEnd = function(event) {
     var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
-    if (swipe.direction === 'left' && distance > (width/2)) {
+    if (swipe.direction === 'left' && distance > (width/3)) {
       completeSwipe(swipe.direction)
     } else {
       completeSwipe('back');
