@@ -93,7 +93,6 @@
     swipe.page.className += " swipe"
     swipe.page.style.width = width + "px";
     document.getElementById('swipe').appendChild(swipe.page);
-    // document.getElementById('swipe').style.opacity = "1";
     if (swipe.direction==="left") changeDOY(1);
     if (swipe.direction==='right') changeDOY(-1)
   }
@@ -133,6 +132,7 @@
       completeSwipe('back');
     } else {
       var x_distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
+      console.log(x_distance)
       if (x_distance > threshold.x) {
         if (swipe.page === null) buildSwipePage();
         if (swipe.direction === 'left') {
