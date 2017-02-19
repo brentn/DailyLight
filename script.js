@@ -91,12 +91,12 @@
   };
   function buildSwipePage() {
     var card = document.getElementsByClassName('card')[0];
+    if (swipe.direction==="right") changeDOY(-1);
     swipe.page = card.cloneNode(true);
     swipe.page.className += " swipe"
     swipe.page.style.width = width + "px";
     document.getElementById('swipe').appendChild(swipe.page);
-    if (swipe.direction==="left") changeDOY(1);
-    if (swipe.direction==='right') changeDOY(-1)
+    changeDOY(1);
   }
   function clearSwipePage() {
     var div = document.getElementById('swipe');
@@ -114,9 +114,10 @@
       loadDay(DOY);
     }
     if (swipe.page != null) {
+      if (swipe.direction==='right') changeDOY(-1);
+      swipe.direction = "";
       document.getElementById('swipe').className += " " + type;
       document.getElementById('swipe').style.left = null;
-      swipe.direction = "";
       clearSwipePage();
     }
   }
@@ -125,7 +126,7 @@
       swipe.x = event.changedTouches[0].clientX;
       swipe.y = event.changedTouches[0].clientY;
       swipe.lastDOY = DOY;
-      swipe.direction = (event.changedTouches[0].clientX>(width/2)?"left":"");
+      swipe.direction = (event.changedTouches[0].clientX>(width/2)?"left":"right");
     }
   }
   var touchMove = function(event) {
@@ -133,11 +134,14 @@
     if (y_distance > threshold.y) {
       completeSwipe('back');
     } else {
-      var x_distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
-      if (x_distance > threshold.x) {
+      var x_distance = event.changedTouches[0].clientX - swipe.x;
+      if (Math.abs(x_distance) > threshold.x) {
         if (swipe.page === null) buildSwipePage();
-        if (swipe.direction === 'left') {
-          document.getElementById('swipe').style.left = -x_distance + "px";
+        if (swipe.direction==='left') {
+          document.getElementById('swipe').style.left = x_distance + "px";
+        }
+        if (swipe.direction==='right') {
+          document.getElementById('swipe').style.left = x_distance-width + "px";
         }
         event.preventDefault();
       }
@@ -145,7 +149,7 @@
   }
   var touchEnd = function(event) {
     var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
-    if (swipe.direction === 'left' && distance > (width/3)) {
+    if (distance > (width/3)) {
       completeSwipe(swipe.direction)
     } else {
       completeSwipe('back');
