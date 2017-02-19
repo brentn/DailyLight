@@ -195,11 +195,8 @@
   });
   document.getElementsByClassName('morn_eve')[0].addEventListener('click', toggleMorning);
   document.getElementsByClassName('datepicker')[0].addEventListener('input', dateChanged);
-  var swipeableElements =  document.getElementsByClassName('swipeable');
-  for (var i=0; i<swipeableElements.length; i++) {
-    swipeableElements[i].addEventListener('touchstart', touchStart, false);
-    swipeableElements[i].addEventListener('touchmove', touchMove, false);
-    swipeableElements[i].addEventListener('touchend', touchEnd, false);
-    swipeableElements[i].addEventListener('touchcancel', touchCancel, false);
-  }
+  document.getElementById('swipe').addEventListener('touchstart', touchStart, false);
+  document.getElementById('swipe').addEventListener('touchmove', touchMove, false);
+  document.getElementById('swipe').addEventListener('touchend', touchEnd, false);
+  document.getElementById('swipe').addEventListener('touchcancel', touchCancel, false);
 })();
