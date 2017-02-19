@@ -119,7 +119,6 @@
     }
   }
   var touchStart = function(event) {
-    console.log('start')
     if (swipe.page === null) {
       swipe.x = event.changedTouches[0].clientX;
       swipe.y = event.changedTouches[0].clientY;
@@ -143,7 +142,6 @@
     }
   }
   var touchEnd = function(event) {
-    console.log('end');
     var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
     if (swipe.direction === 'left' && distance > (width/2)) {
       completeSwipe(swipe.direction)
@@ -152,7 +150,6 @@
     }
   }
   var touchCancel = function() {
-    console.log('cancel')
     completeSwipe('back');
   }
 
