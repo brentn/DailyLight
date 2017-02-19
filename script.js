@@ -89,7 +89,8 @@
   }
   var mouseMove = function(event) {
     var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
-    var ydistance = Math.abs(swipe.y = event.changedTouches[0].clientY);
+    var ydistance = Math.abs(swipe.y - event.changedTouches[0].clientY);
+    console.log (distance,ydistance)
     if (ydistance < min_swipe_distance && distance > min_swipe_distance) {
       event.preventDefault();
       if (swipe.page === null) {
