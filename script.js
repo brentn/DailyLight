@@ -116,7 +116,7 @@
       loadDay(DOY);
     }
     if (swipe.page != null) {
-      if (swipe.direction==='right') changeDOY(-1);
+      if (type==='right') changeDOY(-1);
       swipe.direction = "";
       document.getElementById('swipe').className += " " + type;
       document.getElementById('swipe').style.left = null;
