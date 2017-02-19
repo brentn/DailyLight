@@ -45,12 +45,12 @@ body {
   opacity: 0;
   transition: left .5s, opacity .5s;
 }
-#swipe.left {
+#swipe.left, #swipe.right.back {
   left : -1000px;
   opacity: 0;
   transition: left .5s, opacity .5s;
 }
-#swipe.back {
+#swipe.left.back {
   left : 0px;
   opacity: 0;
   transition: left .5s, opacity .5s;

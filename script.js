@@ -93,7 +93,7 @@
     var card = document.getElementsByClassName('card')[0];
     if (swipe.direction==="right") changeDOY(-1);
     swipe.page = card.cloneNode(true);
-    swipe.page.className += " swipe"
+    swipe.page.className += " swipe";
     swipe.page.style.width = width + "px";
     document.getElementById('swipe').appendChild(swipe.page);
     changeDOY(1);
@@ -104,12 +104,14 @@
       swipe.page = null;
       while (div.firstChild) {
         document.getElementById('swipe').className = "";
+        document.getElementById('swipe').left = "0";
         div.removeChild(div.firstChild);
       }
     }, 600);
   }
   function completeSwipe(type) {
     if (type === 'back') {
+      document.getElementById('swipe').className += " " + swipe.direction;
       DOY = swipe.lastDOY;
       loadDay(DOY);
     }
