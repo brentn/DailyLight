@@ -2,7 +2,7 @@
   'use strict';
 
   var data;
-  var width = document.getElementsByClassName('card')[0].getBoundingClientRect().width;
+  var width = document.getElementsByClassName('card')[0].getBoundingClientRect().width-20; //20px is card margin
   var threshold = {x:30, y:50};
   var swipe={page:null};
   var DOY;
@@ -127,7 +127,6 @@
     }
   }
   var touchMove = function(event) {
-    console.log('move')
     var y_distance = Math.abs(swipe.y - event.changedTouches[0].clientY);
     if (y_distance > threshold.y) {
       completeSwipe('back');
@@ -138,7 +137,7 @@
         if (swipe.direction === 'left') {
           document.getElementById('swipe').style.left = -x_distance + "px";
         }
-        event.preventDefault();
+        //event.preventDefault();
       }
     }
   }
