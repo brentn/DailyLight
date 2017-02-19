@@ -2,11 +2,12 @@
   'use strict';
 
   var data;
-  var min_swipe_distance = 10;
+  var min_swipe_distance = 30;
   var width = document.getElementsByClassName('card')[0].getBoundingClientRect().width;
   var mid = width/2;
   var swipe={page:null};
   var DOY;
+  var LAST_DOY;
   var morn_eve=new Date().getHours()<17?'morning':'evening';
   var thisYear = new Date().getFullYear();
   var missing = document.getElementsByClassName('missing')[0];
@@ -81,23 +82,26 @@
   };
   var mouseDown = function(event) {
     if (swipe.page === null) {
-      swipe.x = event.touches[0].clientX;
-      swipe.y = event.touches[0].clientY;
-      swipe.direction = (event.touches[0].clientX>mid?"left":"right");
-      var card = document.getElementsByClassName('card')[0];
-      swipe.page = card.cloneNode(true);
-      swipe.page.className += " swipe"
-      swipe.page.style.width = width + "px";
-      swipe.page.style.position = "absolute";
-      swipe.page.style.zIndex = "2";
-      document.body.insertBefore(swipe.page, card);
+      swipe.x = event.changedTouches[0].clientX;
+      swipe.y = event.changedTouches[0].clientY;
+      swipe.direction = (event.changedTouches[0].clientX>mid?"left":"right");
       event.preventDefault();
     }
   }
   var mouseMove = function(event) {
-    var distance = Math.abs(swipe.x - event.touches[0].clientX);
-    if (swipe.page != null && distance > min_swipe_distance) {
-      if (swipe.direction==="left" && event.touches[0].clientX < swipe.x) {
+    var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
+    if (distance > min_swipe_distance) {
+      if (swipe.page === null) {
+        var card = document.getElementsByClassName('card')[0];
+        swipe.page = card.cloneNode(true);
+        LAST_DOY = DOY;
+        if (swipe.direction==="left") changeDOY(1);
+        if (swipe.direction==='right') changeDOY(-1);
+        swipe.page.className += " swipe"
+        swipe.page.style.width = width + "px";
+        document.getElementById('swipe').appendChild(swipe.page);
+      }
+      if (swipe.direction==="left" && event.changedTouches[0].clientX < swipe.x) {
         swipe.page.style.left = -distance + "px";
       }
       // if (swipe.direction==="right" && event.clientX > swipe.x) {
@@ -113,11 +117,13 @@
         swipe.page.className += " "+swipe.direction;
         changeDOY(1);
       } else {
+        DOY = LAST_DOY;
+        loadDay(DOY);
         swipe.page.className += " back";
       }
       swipe.direction="";
       setTimeout(function() {
-        document.body.removeChild(swipe.page);
+        document.getElementById('swipe').removeChild(swipe.page);
         swipe.page=null;
       }, 600);
     }
@@ -165,8 +171,11 @@
   });
   document.getElementsByClassName('morn_eve')[0].addEventListener('click', toggleMorning);
   document.getElementsByClassName('datepicker')[0].addEventListener('input', dateChanged);
-  document.body.addEventListener('touchstart', mouseDown, false);
-  document.body.addEventListener('touchmove', mouseMove, false);
-  document.body.addEventListener('touchend', mouseUp, false);
-  document.body.addEventListener('touchcancel', mouseUp, false);
+  var swipeableElements =  document.getElementsByClassName('swipeable');
+  for (var i=0; i<swipeableElements.length; i++) {
+    swipeableElements[i].addEventListener('touchstart', mouseDown, false);
+    swipeableElements[i].addEventListener('touchmove', mouseMove, false);
+    swipeableElements[i].addEventListener('touchend', mouseUp, false);
+    swipeableElements[i].addEventListener('touchcancel', mouseUp, false);
+  }
 })();
