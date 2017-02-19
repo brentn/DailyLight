@@ -118,7 +118,7 @@
       clearSwipePage();
     }
   }
-  var mouseDown = function(event) {
+  var touchStart = function(event) {
     if (swipe.page === null) {
       swipe.x = event.changedTouches[0].clientX;
       swipe.y = event.changedTouches[0].clientY;
@@ -126,13 +126,13 @@
       swipe.direction = (event.changedTouches[0].clientX>(width/2)?"left":"");
     }
   }
-  var mouseMove = function(event) {
+  var touchMove = function(event) {
+    console.log('move')
     var y_distance = Math.abs(swipe.y - event.changedTouches[0].clientY);
     if (y_distance > threshold.y) {
       completeSwipe('back');
     } else {
       var x_distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
-      console.log(x_distance)
       if (x_distance > threshold.x) {
         if (swipe.page === null) buildSwipePage();
         if (swipe.direction === 'left') {
@@ -142,13 +142,16 @@
       }
     }
   }
-  var mouseUp = function(event) {
+  var touchEnd = function(event) {
     var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
     if (swipe.direction === 'left' && distance > (width/2)) {
       completeSwipe(swipe.direction)
     } else {
       completeSwipe('back');
     }
+  }
+  var touchCancel = function() {
+    completeSwipe('back');
   }
 
   // Main
@@ -195,9 +198,9 @@
   document.getElementsByClassName('datepicker')[0].addEventListener('input', dateChanged);
   var swipeableElements =  document.getElementsByClassName('swipeable');
   for (var i=0; i<swipeableElements.length; i++) {
-    swipeableElements[i].addEventListener('touchstart', mouseDown, false);
-    swipeableElements[i].addEventListener('touchmove', mouseMove, false);
-    swipeableElements[i].addEventListener('touchend', mouseUp, false);
-    swipeableElements[i].addEventListener('touchcancel', mouseUp, false);
+    swipeableElements[i].addEventListener('touchstart', touchStart, false);
+    swipeableElements[i].addEventListener('touchmove', touchMove, false);
+    swipeableElements[i].addEventListener('touchend', touchEnd, false);
+    swipeableElements[i].addEventListener('touchcancel', touchCancel, false);
   }
 })();
