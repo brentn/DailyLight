@@ -92,16 +92,15 @@
     var ydistance = Math.abs(swipe.y - event.changedTouches[0].clientY);
     console.log (distance,ydistance)
     if (ydistance < min_swipe_distance && distance > min_swipe_distance) {
-      event.preventDefault();
       if (swipe.page === null) {
         var card = document.getElementsByClassName('card')[0];
         swipe.page = card.cloneNode(true);
-        LAST_DOY = DOY;
-        if (swipe.direction==="left") changeDOY(1);
-        if (swipe.direction==='right') changeDOY(-1);
         swipe.page.className += " swipe"
         swipe.page.style.width = width + "px";
         document.getElementById('swipe').appendChild(swipe.page);
+        LAST_DOY = DOY;
+        if (swipe.direction==="left") changeDOY(1);
+        if (swipe.direction==='right') changeDOY(-1);
       }
       if (swipe.direction==="left" && event.changedTouches[0].clientX < swipe.x) {
         swipe.page.style.left = -distance + "px";
@@ -109,6 +108,7 @@
       // if (swipe.direction==="right" && event.clientX > swipe.x) {
       //   swipe.page.style.left = distance+"px";
       // }
+      event.preventDefault();
     }
   }
   var mouseUp = function(event) {
