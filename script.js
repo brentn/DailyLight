@@ -85,12 +85,13 @@
       swipe.x = event.changedTouches[0].clientX;
       swipe.y = event.changedTouches[0].clientY;
       swipe.direction = (event.changedTouches[0].clientX>mid?"left":"right");
-      event.preventDefault();
     }
   }
   var mouseMove = function(event) {
     var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
-    if (distance > min_swipe_distance) {
+    var ydistance = Math.abs(swipe.y = event.changedTouches[0].clientY);
+    if (ydistance < min_swipe_distance && distance > min_swipe_distance) {
+      event.preventDefault();
       if (swipe.page === null) {
         var card = document.getElementsByClassName('card')[0];
         swipe.page = card.cloneNode(true);
