@@ -137,7 +137,7 @@
         if (swipe.direction === 'left') {
           document.getElementById('swipe').style.left = -x_distance + "px";
         }
-        //event.preventDefault();
+        event.preventDefault();
       }
     }
   }
@@ -150,6 +150,7 @@
     }
   }
   var touchCancel = function() {
+    console.log('cancel')
     completeSwipe('back');
   }
 
