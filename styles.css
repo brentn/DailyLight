@@ -117,11 +117,11 @@ body {
     font-size: small
 }
 
-.card p.text {
+/*.card p.text {
     -webkit-animation: fadein 1s;
     -moz-animation: fadein 1s;
     animation: fadein 1s
-}
+}*/
 
 .clear {
   clear:both;
