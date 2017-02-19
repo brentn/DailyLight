@@ -1,8 +1,13 @@
-CACHE MANIFEST
-
-# Version: 0.03.17p
+# Version: 0.03.17q
 
 CACHE:
+index.html
+styles.css
+script.js
+DailyLight.json
+icon.png
+favicon.png
+
 index.html
 styles.css
 script.js

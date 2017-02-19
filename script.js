@@ -2,12 +2,10 @@
   'use strict';
 
   var data;
-  var min_swipe_distance = 30;
   var width = document.getElementsByClassName('card')[0].getBoundingClientRect().width;
-  var mid = width/2;
+  var threshold = {x:30, y:50};
   var swipe={page:null};
   var DOY;
-  var LAST_DOY;
   var morn_eve=new Date().getHours()<17?'morning':'evening';
   var thisYear = new Date().getFullYear();
   var missing = document.getElementsByClassName('missing')[0];
@@ -20,22 +18,31 @@
      return monthNames[date.getMonth()]+' '+date.getDate();
   }
   function setMorning() {
-    document.getElementsByClassName("morn_eve")[0].innerHTML=morn_eve;
+    var cards = document.getElementsByClassName('card');
+    var card = cards[cards.length-1];
+    card.getElementsByClassName("morn_eve")[0].innerHTML=morn_eve;
   }
   function setDay(day) {
-    document.getElementsByClassName("date")[0].innerHTML=dateString(day);
-    document.getElementsByClassName("datepicker")[0].value=day;
+    var cards = document.getElementsByClassName('card');
+    var card = cards[cards.length-1];
+    card.getElementsByClassName("date")[0].innerHTML=dateString(day);
+    card.getElementsByClassName("datepicker")[0].value=day;
     setMorning();
     DOY=day;
   }
   function loadDay(day) {
     missing.style.display='none';
-    document.getElementsByClassName("heading")[0].innerHTML='';
-    document.getElementsByClassName("references")[0].innerHTML='';
-    var verses = document.getElementById("verses");
+    var cards = document.getElementsByClassName('card');
+    var card = cards[cards.length-1];
+    card.getElementsByClassName("heading")[0].innerHTML='';
+    card.getElementsByClassName("references")[0].innerHTML='';
+    var verses = card.getElementsByClassName("verses")[0];
     verses.innerHTML='';
-    if (!data) { return; }
     setDay(day);
+    if (!data) {
+      missing.style.display = 'block';
+      return;
+    }
     var item;
     item = data.days.day.filter(function(block) {return block.date===dateString(day);});
     if (item.length>0) {
@@ -43,12 +50,12 @@
         item = item[0].morning;
       } else {
         item = item[0].evening; }
-      document.getElementsByClassName("heading")[0].innerHTML=item.heading;
-      document.getElementsByClassName("references")[0].innerHTML=item.references;
+      card.getElementsByClassName("heading")[0].innerHTML=item.heading;
+      card.getElementsByClassName("references")[0].innerHTML=item.references;
       verses.innerHTML='';
       if (item.references.length>0) {
-        document.getElementsByClassName("heading")[0].innerHTML=item.heading;
-        document.getElementsByClassName("references")[0].innerHTML=item.references;
+        card.getElementsByClassName("heading")[0].innerHTML=item.heading;
+        card.getElementsByClassName("references")[0].innerHTML=item.references;
         verses.innerHTML='';
         var firstWord = item.text.split(' ')[0];
         var text = firstWord.toUpperCase() + item.text.substring(firstWord.length);
@@ -77,57 +84,70 @@
     loadDay(doy);
   };
   var changeDOY = function(delta) {
-    DOY = (DOY + delta + 366) % 366;
+    DOY = (Number(DOY) + delta + 366) % 366;
     loadDay(DOY);
   };
+  function buildSwipePage() {
+    var card = document.getElementsByClassName('card')[0];
+    swipe.page = card.cloneNode(true);
+    swipe.page.className += " swipe"
+    swipe.page.style.width = width + "px";
+    document.getElementById('swipe').appendChild(swipe.page);
+    // document.getElementById('swipe').style.opacity = "1";
+    if (swipe.direction==="left") changeDOY(1);
+    if (swipe.direction==='right') changeDOY(-1)
+  }
+  function clearSwipePage() {
+    var div = document.getElementById('swipe');
+    setTimeout(function() {
+      swipe.page = null;
+      while (div.firstChild) {
+        document.getElementById('swipe').className = "";
+        div.removeChild(div.firstChild);
+      }
+    }, 600);
+  }
+  function completeSwipe(type) {
+    if (type === 'back') {
+      DOY = swipe.lastDOY;
+      loadDay(DOY);
+    }
+    if (swipe.page != null) {
+      document.getElementById('swipe').className += " " + type;
+      document.getElementById('swipe').style.left = null;
+      swipe.direction = "";
+      clearSwipePage();
+    }
+  }
   var mouseDown = function(event) {
     if (swipe.page === null) {
       swipe.x = event.changedTouches[0].clientX;
       swipe.y = event.changedTouches[0].clientY;
-      swipe.direction = (event.changedTouches[0].clientX>mid?"left":"right");
+      swipe.lastDOY = DOY;
+      swipe.direction = (event.changedTouches[0].clientX>(width/2)?"left":"");
     }
   }
   var mouseMove = function(event) {
-    var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
-    var ydistance = Math.abs(swipe.y - event.changedTouches[0].clientY);
-    console.log (distance,ydistance)
-    if (ydistance < min_swipe_distance && distance > min_swipe_distance) {
-      if (swipe.page === null) {
-        var card = document.getElementsByClassName('card')[0];
-        swipe.page = card.cloneNode(true);
-        swipe.page.className += " swipe"
-        swipe.page.style.width = width + "px";
-        document.getElementById('swipe').appendChild(swipe.page);
-        LAST_DOY = DOY;
-        if (swipe.direction==="left") changeDOY(1);
-        if (swipe.direction==='right') changeDOY(-1);
+    var y_distance = Math.abs(swipe.y - event.changedTouches[0].clientY);
+    if (y_distance > threshold.y) {
+      completeSwipe('back');
+    } else {
+      var x_distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
+      if (x_distance > threshold.x) {
+        if (swipe.page === null) buildSwipePage();
+        if (swipe.direction === 'left') {
+          document.getElementById('swipe').style.left = -x_distance + "px";
+        }
+        event.preventDefault();
       }
-      if (swipe.direction==="left" && event.changedTouches[0].clientX < swipe.x) {
-        swipe.page.style.left = -distance + "px";
-      }
-      // if (swipe.direction==="right" && event.clientX > swipe.x) {
-      //   swipe.page.style.left = distance+"px";
-      // }
-      event.preventDefault();
     }
   }
   var mouseUp = function(event) {
     var distance = Math.abs(swipe.x - event.changedTouches[0].clientX);
-    if (swipe.page != null) {
-      swipe.page.style.left = null;
-      if (distance > mid) {
-        swipe.page.className += " "+swipe.direction;
-        changeDOY(1);
-      } else {
-        DOY = LAST_DOY;
-        loadDay(DOY);
-        swipe.page.className += " back";
-      }
-      swipe.direction="";
-      setTimeout(function() {
-        document.getElementById('swipe').removeChild(swipe.page);
-        swipe.page=null;
-      }, 600);
+    if (swipe.direction === 'left' && distance > (width/2)) {
+      completeSwipe(swipe.direction)
+    } else {
+      completeSwipe('back');
     }
   }
 

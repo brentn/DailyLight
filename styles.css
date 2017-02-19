@@ -36,22 +36,17 @@ body {
   position: absolute;
 }
 
-.swipe {
-  position: absolute;
-  background-color: #CCCCCC;
-}
-
-.swipe.right {
+#swipe.right {
   left : 1000px;
   opacity: 0;
   transition: left .5s, opacity .5s;
 }
-.swipe.left {
+#swipe.left {
   left : -1000px;
   opacity: 0;
   transition: left .5s, opacity .5s;
 }
-.swipe.back {
+#swipe.back {
   left : 0px;
   opacity: 0;
   transition: left .5s, opacity .5s;
