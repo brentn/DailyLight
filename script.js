@@ -89,12 +89,19 @@
     DOY = (Number(DOY) + delta + 366) % 366;
     loadDay(DOY);
   };
+  function activateControls(state) {
+    var elements = document.getElementsByClassName('active');
+    for (i=0; i<elements.length; i++) {
+      elements[i].className = (state?"active":"active deactivated");
+    }
+  }
   function buildSwipePage() {
     var card = document.getElementsByClassName('card')[0];
     if (swipe.direction==="right") changeDOY(-1);
     swipe.page = card.cloneNode(true);
     swipe.page.className += " swipe";
     swipe.page.style.width = width + "px";
+    activateControls(false);
     document.getElementById('swipe').appendChild(swipe.page);
     changeDOY(1);
   }
@@ -102,6 +109,7 @@
     var div = document.getElementById('swipe');
     setTimeout(function() {
       swipe.page = null;
+      activateControls(true);
       while (div.firstChild) {
         document.getElementById('swipe').className = "";
         document.getElementById('swipe').left = "0";

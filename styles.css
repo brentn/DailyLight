@@ -56,22 +56,26 @@ body {
   transition: left .5s, opacity .5s;
 }
 
+.active {
+  position:relative;
+  z-index:2;
+}
+.active.deactivated {
+  z-index:1;
+}
+
 .card .date {
     font-size: x-large;
     float: left;
 }
 
 .card .morn_eve {
-    position:relative;
-    z-index:2;
     font-size: large;
     padding-right: 20px;
     float: right;
 }
 
 .card .datepicker {
-    position:relative;
-    z-index:2;
     width: 100%
 }
 
