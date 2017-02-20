@@ -2,7 +2,7 @@
   'use strict';
 
   var data;
-  var width = document.getElementsByClassName('card')[0].getBoundingClientRect().width-20; //20px is card margin
+  var width = document.getElementsByClassName('card')[0].getBoundingClientRect().width-32; //20px is card margin
   var threshold = {x:30, y:50};
   var swipe={page:null};
   var DOY;

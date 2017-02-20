@@ -16,6 +16,7 @@ body {
     color: #3578f3;
     font-weight: 800;
     height: 10px;
+    z-index:2;
 }
 
 .card {
@@ -37,23 +38,21 @@ body {
   right:0;
   top:38px;
   bottom:0;
+  margin-left:8px;
   z-index:1;
 }
 
 #swipe.right {
   left : 0px;
-  opacity: 0;
-  transition: left .5s, opacity .5s;
+  transition: left .3s;
 }
 #swipe.left, #swipe.right.back {
-  left : -1000px;
-  opacity: 0;
-  transition: left .5s, opacity .5s;
+  left : -650px;
+  transition: left .3s;
 }
 #swipe.left.back {
   left : 0px;
-  opacity: 0;
-  transition: left .5s, opacity .5s;
+  transition: left .3s;
 }
 
 .active {
