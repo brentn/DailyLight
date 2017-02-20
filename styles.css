@@ -61,7 +61,7 @@ body {
   z-index:2;
 }
 .active.deactivated {
-  z-index:1;
+  z-index:0;
 }
 
 .card .date {

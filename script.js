@@ -91,8 +91,9 @@
   };
   function activateControls(state) {
     var elements = document.getElementsByClassName('active');
-    for (i=0; i<elements.length; i++) {
-      elements[i].className = (state?"active":"active deactivated");
+    for (var i=0; i<elements.length; i++) {
+      if (state) elements[i].className = elements[i].className.replace(' deactivated','');
+      else elements[i].className += " deactivated";
     }
   }
   function buildSwipePage() {
