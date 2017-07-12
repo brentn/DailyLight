@@ -1,0 +1,105 @@
+.content {
+  position:relative;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 3em;
+  position: relative;
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 50px;
+  color: #3578f3;
+  font-weight: 800;
+  height: 10px;
+  z-index:2;
+}
+
+.card {
+  position:static;
+  max-width: 600px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 2em 10px 4em;
+  background-color: #e8ebf9;
+  box-shadow: 4px 8px 8px;
+  -webkit-box-shadow: 4px 4px 8px;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+}
+
+.card.missing {
+  position:fixed;
+  top:45%;
+  left:43%;
+}
+
+.card-heading {
+  padding:10px;
+}
+
+.card-heading a {
+  color: #3273dc;
+}
+
+.card-heading a:hover {
+  color: darkslategray;
+}
+
+.card-content {
+  color: darkslategray;
+  font-weight: 400;
+  text-indent: 40px;
+  white-space: pre-line;
+  padding:0;
+}
+
+.card-content .heading {
+  font-weight: 900;
+  font-size: 1em;
+  text-align: center;
+  text-indent: 0;
+}
+
+:host >>> span.lord {
+  font-size: small;
+}
+
+.card-footer {
+  font-style: italic;
+  color: darkgrey;
+  font-size: small;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+:host >>> .drop-cap>p:first-child:first-letter {
+  float: left;
+  font-family: serif;
+  font-size: 3.3em;
+  line-height: 0.5;
+  color: #ed9f64;
+  padding: 10px 8px 0 40px
+}
+
+:host >>> .drop-cap>p:first-child {
+  text-indent: -8px
+}
+
+.button {
+  position: fixed;
+  border-radius:40px;
+  opacity: 0.5;
+  top: 50%;
+}
+
+.button.left {
+  margin-left:-15px;
+}
+
+.button.right {
+  right:0px;
+  margin-right:calc(((100% - 600px) / 2) - 15px);
+}
