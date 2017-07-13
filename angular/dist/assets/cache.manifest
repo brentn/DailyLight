@@ -1,0 +1,15 @@
+CACHE MANIFEST
+
+# Version: 0.0.1
+
+CACHE:
+/index.html
+/inline.bundle.js
+/main.bundle.js
+/polyfills.bundle.js
+/vendor.bundle.js
+/styles.bundle.js
+DailyLight.json
+manifest.json
+icon.png
+favicon.png

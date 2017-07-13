@@ -1,0 +1,17 @@
+{
+  "short_name": "Daily Light",
+  "name": "Daily Light on the Daily Path Devotional",
+  "icons": [
+    {
+      "src": "/assets/icon.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "index.html?launcher=true",
+  "background_color": "cornflowerblue",
+  "theme_color": "cornflowerblue",
+  "display": "standalone",
+  "orientation": "landscape"
+
+}
