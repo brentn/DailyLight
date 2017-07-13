@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# Version: 0.0.8
+# Version: 0.0.9
 
 CACHE:
 ../index.html
@@ -9,7 +9,7 @@ CACHE:
 ../main.bundle.js
 ../polyfills.bundle.js
 ../vendor.bundle.js
-../styles.bundle.js
+../styles.bundle.css
 DailyLight.json
 manifest.json
 icon.png
