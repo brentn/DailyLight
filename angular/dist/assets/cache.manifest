@@ -1,15 +1,15 @@
 CACHE MANIFEST
 
-# Version: 0.0.5
+# Version: 0.0.6
 
 CACHE:
-/index.html
-/index.html?launcher=true
-/inline.bundle.js
-/main.bundle.js
-/polyfills.bundle.js
-/vendor.bundle.js
-/styles.bundle.js
+../index.html
+../index.html?launcher=true
+../inline.bundle.js
+../main.bundle.js
+../polyfills.bundle.js
+../vendor.bundle.js
+../styles.bundle.js
 DailyLight.json
 manifest.json
 icon.png
