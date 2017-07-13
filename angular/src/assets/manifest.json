@@ -12,6 +12,6 @@
   "background_color": "cornflowerblue",
   "theme_color": "cornflowerblue",
   "display": "standalone",
-  "orientation": "landscape"
+  "orientation": "portrait"
 
 }
