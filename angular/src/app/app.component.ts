@@ -6,6 +6,7 @@ import { CardService } from "./card.service";
 
 import 'rxjs/add/operator/catch';
 
+const EVENING_HOUR = 17;
 
 @Component({
   selector: 'app-root',
@@ -14,18 +15,16 @@ import 'rxjs/add/operator/catch';
 })
 export class AppComponent implements OnInit {
   title: string = 'Daily Light';
-  cards: Card[] = [];
-  date: Date;
-  isMorning: boolean = true;
+  cards: Card[];
+  cardDate: Date =  new Date();
+  isMorning: boolean = new Date().getHours() < EVENING_HOUR;
   card: Card;
 
   constructor(private cardService: CardService, private datePipe: DatePipe) {
-    this.date = new Date();
-    this.isMorning = new Date().getHours() < 17;
   }
 
   update(): void {
-    let dateString: string = this.datePipe.transform(this.date, 'MMMM d');
+    let dateString: string = this.datePipe.transform(this.cardDate, 'MMMM d');
     this.card = this.cards.find((card: Card) => card.date == dateString)
     if (this.isMorning) {
       if (!(this.card.morning && this.card.morning.text.length > 1)) { this.card = null; }
@@ -35,12 +34,12 @@ export class AppComponent implements OnInit {
   }
 
   priorDay(): void {
-    this.date.setDate(this.date.getDate() - 1);
+    this.cardDate = new Date(this.cardDate.getTime() - 86400000);
     this.update();
   }
 
   nextDay(): void {
-    this.date.setDate(this.date.getDate() + 1);
+    this.cardDate = new Date(this.cardDate.getTime() + 86400000);
     this.update();
   }
 
