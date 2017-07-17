@@ -105,21 +105,28 @@
 
 .button {
   position: fixed;
-  border-radius:40px;
-  opacity: 0.5;
-  top: 50%;
+  border-radius:50px;
+  opacity: 0.2;
+  top: 45%;
+  height:100px;
+  width:100px;
 }
 
 .button.left {
-  margin-left:-15px;
+  border-radius: 0 50px 50px 0;
+  clip: rect(0, 100px, 100px, 55px);
+  margin-left:-45px;
+  padding-right:0;
 }
 
 .button.right {
+  border-radius: 50px 0 0 50px;
+  clip: rect(0, 45px, 100px, 0px);
   right:0px;
-  margin-right:calc(((100vw - 768px) / 2) - 15px);
+  margin-right:calc(((100vw - 768px) / 2) - 53px);
+  padding-left:0;
 }
 
 .button.right.is-mobile {
-  right:0px;
-  margin-right:-15px;
+  margin-right:-45px;
 }

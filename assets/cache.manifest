@@ -1,6 +1,6 @@
 CACHE MANIFEST
 
-# Version: 0.1.1a
+# Version: 0.1.1b
 
 CACHE:
 ../index.html
@@ -13,6 +13,5 @@ CACHE:
 DailyLight.json
 manifest.json
 icon.png
-icon-48.png
 icon-96.png
 favicon.png
