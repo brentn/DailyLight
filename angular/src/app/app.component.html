@@ -11,7 +11,7 @@
       </div>
     </div>
 
-    <div *ngIf="card" class="card-content">
+    <div *ngIf="card" class="card-content"  [@transition]="transitioning">
       <section class="heading"><p [innerHTML]="isMorning?card.morning.heading:card.evening.heading"></p></section>
       <section class="drop-cap" [innerHTML]="(isMorning?card.morning.text:card.evening.text) | format"></section>
     </div>

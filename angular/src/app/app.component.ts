@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, trigger, animate, transition, style } from '@angular/core';
 import { DatePipe } from '@angular/common';
-
 import { Card } from "./card";
 import { CardService } from "./card.service";
 
@@ -12,10 +11,21 @@ const EVENING_HOUR = 17;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
+  animations: [
+    trigger('transition', [
+      transition('* => *', [
+        style({ opacity: 0 }),
+        animate( '300ms ease-out'),
+        style({ opacity: 1}),
+        animate( '400ms 150ms ease-in')
+      ])
+    ])
+  ]
 })
 export class AppComponent implements OnInit {
   title: string = 'Daily Light';
   cards: Card[];
+  transitioning: boolean = false;
   cardDate: Date =  new Date();
   isMorning: boolean = new Date().getHours() < EVENING_HOUR;
   card: Card;
@@ -24,6 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   update(): void {
+    this.transitioning = !this.transitioning;
     let dateString: string = this.datePipe.transform(this.cardDate, 'MMMM d');
     this.card = this.cards.find((card: Card) => card.date == dateString)
     if (this.isMorning) {

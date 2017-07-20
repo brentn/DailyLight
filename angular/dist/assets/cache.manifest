@@ -1,10 +1,9 @@
 CACHE MANIFEST
 
-# Version: 0.1.0
+# Version: 0.1.2
 
 CACHE:
 ../index.html
-../index.html?launcher=true
 ../inline.bundle.js
 ../main.bundle.js
 ../polyfills.bundle.js
