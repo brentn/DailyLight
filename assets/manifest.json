@@ -3,11 +3,6 @@
   "name": "Daily Light on the Daily Path",
   "icons": [
     {
-      "src": "icon-48.png",
-      "type": "image/png",
-      "sizes": "48x48"
-    },
-    {
       "src": "icon-96.png",
       "type": "image/png",
       "sizes": "96x96"
