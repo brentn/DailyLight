@@ -1,16 +1,1 @@
-CACHE MANIFEST
-
-# Version: 0.1.3 (Aug 16)
-
-CACHE:
-../index.html
-../inline.bundle.js
-../main.bundle.js
-../polyfills.bundle.js
-../vendor.bundle.js
-../styles.bundle.css
-DailyLight.json
-manifest.json
-icon.png
-icon-96.png
-favicon.png
+../angular/src/assets/cache.manifest
