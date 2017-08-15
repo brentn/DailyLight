@@ -9,8 +9,7 @@ export class TextPipe implements PipeTransform {
   }
   private highlightLORD(value: string): string {
     return value.replace(/LORD'S/g, "<span class='lord'>LORD's</span>")
-      .replace(/LORDS/g, "L&zwnj;ORDS")
-      .replace(/LORD/g, "<span class='lord'>LORD</span>")
+      .replace(/LORD(?!S)(?!&nbsp;)/g, "<span class='lord'>LORD</span>")
   }
   private capitalizeFirstWord(value: string): string {
     let index: number = value.substr(2).indexOf(' ') + 2;
