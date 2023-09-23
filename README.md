@@ -4,6 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 # Deploy this by
- - ng build (to build the dist directory)
- - commit to master
- - git push
+ - change to gh-pages branch (and merge changes if necessary)
+ - ng build -c production --base-href https://brentn.github.io/DailyLight/
+ - ngh --dir=dist/daily-light
+ - possibly delete files that were created
