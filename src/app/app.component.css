@@ -96,7 +96,7 @@ body {
   white-space: normal;
 }
 
-:host>>>span.lord {
+:host ::ng-deep span.lord {
   font-size: small;
 }
 
@@ -109,7 +109,7 @@ body {
   border-top: 1px solid #dbdbdb;
 }
 
-:host>>>.drop-cap>p:first-child:first-letter {
+:host ::ng-deep .drop-cap>p:first-child:first-letter {
   float: left;
   font-family: serif;
   font-size: 3.3em;
@@ -118,7 +118,7 @@ body {
   padding: 5px 5px 0 40px
 }
 
-:host>>>.drop-cap>p:first-child {
+:host ::ng-deep .drop-cap>p:first-child {
   text-indent: -8px
 }
 
