@@ -32,6 +32,7 @@ jobs:
 
   upload:
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - name: Fix permissions
         run: |
