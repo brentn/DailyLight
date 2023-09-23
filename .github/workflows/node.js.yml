@@ -30,6 +30,18 @@ jobs:
     - run: npm run build --if-present
     # - run: npm test
 
+  upload:
+    steps:
+      needs: build
+      steps:
+        - name: Fix permissions
+          run: |
+            chmod -c -R +rX "_site/" | while read line; do
+              echo "::warning title=Invalid file permissions automatically fixed::$line"
+            done
+        - name: Upload Pages artifact
+          uses: actions/upload-pages-artifact@v2
+
   deploy:
     # Add a dependency to the build job
     needs: build
@@ -49,4 +61,5 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2 # o
+        uses: actions/deploy-pages@v2
+
