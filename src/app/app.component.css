@@ -1,0 +1,145 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.content {
+  position: relative;
+  min-height: vh60;
+  max-width: 768px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-size: 3em;
+  position: relative;
+  display: block;
+  margin-bottom: 5px;
+  margin-left: 50px;
+  color: #3578f3;
+  font-weight: 800;
+  height: 10px;
+  z-index: 2;
+}
+
+.card {
+  position: static;
+  max-width: 768px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  padding: 1em;
+  margin: 2em 10px 4em;
+  background-color: #e8ebf9;
+  box-shadow: 4px 8px 8px;
+  -webkit-box-shadow: 4px 4px 8px;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
+}
+
+.card-header {
+  padding: 10px;
+  font-size: 1.3em;
+  font-weight: 200;
+  box-shadow: 0 3px 0px rgba(10, 10, 10, 0.1);
+}
+
+.column {
+  display: inline-block;
+  width: 50%;
+}
+
+.has-text-right {
+  text-align: right;
+}
+
+.card-header .is-fullwidth {
+  width: calc(100% + 1.5rem);
+}
+
+.card-header a {
+  color: #3273dc;
+}
+
+.card-header a:hover {
+  color: darkslategray;
+}
+
+.card-content {
+  color: darkslategray;
+  min-height: 600px;
+  font-weight: 400;
+  text-indent: 40px;
+  white-space: pre-line;
+  padding: 0;
+}
+
+.card-content .heading {
+  font-weight: 900;
+  font-size: 1em;
+  text-align: center;
+  text-indent: 0;
+  padding-right: 8%;
+  padding-left: 8%;
+}
+
+.card-content .missing {
+  position: static;
+  margin-top: 10vh;
+  margin-left: auto;
+  margin-right: auto;
+  text-indent: 0;
+  text-align: center;
+  white-space: normal;
+}
+
+:host>>>span.lord {
+  font-size: small;
+}
+
+.card-footer {
+  font-style: italic;
+  color: darkgrey;
+  font-size: small;
+  margin-top: 10px;
+  margin-bottom: 10px
+}
+
+:host>>>.drop-cap>p:first-child:first-letter {
+  float: left;
+  font-family: serif;
+  font-size: 3.3em;
+  line-height: 0.5;
+  color: #ed9f64;
+  padding: 10px 8px 0 40px
+}
+
+:host>>>.drop-cap>p:first-child {
+  text-indent: -8px
+}
+
+.button {
+  position: fixed;
+  border-radius: 50px;
+  opacity: 0.2;
+  top: 45%;
+  height: 100px;
+  width: 100px;
+}
+
+.button.left {
+  border-radius: 0 50px 50px 0;
+  clip: rect(0, 100px, 100px, 55px);
+  margin-left: -45px;
+  padding-right: 0;
+}
+
+.button.right {
+  border-radius: 50px 0 0 50px;
+  clip: rect(0, 45px, 100px, 0px);
+  right: 0px;
+  margin-right: calc(((100vw - 768px) / 2) - 53px);
+  padding-left: 0;
+}
+
+.button.right.is-mobile {
+  margin-right: -45px;
+}
