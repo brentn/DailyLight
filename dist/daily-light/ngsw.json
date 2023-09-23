@@ -1,0 +1,73 @@
+{
+  "configVersion": 1,
+  "timestamp": 1695497378497,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/index.html",
+        "/main.54a353bb81c479cf.js",
+        "/manifest.webmanifest",
+        "/polyfills.6c3dfac33f284c84.js",
+        "/runtime.53e748b52bf01fe4.js",
+        "/styles.823a63d5d549c434.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Montserrat-VariableFont_wght.f595c38f5aaaeca5.ttf",
+        "/assets/DailyLight.json",
+        "/assets/Montserrat-VariableFont_wght.ttf",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/Montserrat-VariableFont_wght.f595c38f5aaaeca5.ttf": "debd10e57fb07dd24187c41679885129449c1435",
+    "/assets/DailyLight.json": "6dd710693d39c0c60d3020caff8ef1883a9b26c8",
+    "/assets/Montserrat-VariableFont_wght.ttf": "debd10e57fb07dd24187c41679885129449c1435",
+    "/assets/icons/icon-192x192.png": "ea83e40de4437d03c9346c7eba7d05cb5c0624ac",
+    "/assets/icons/icon-96x96.png": "e8b04a59ebe4e69f7165e57ff52af3430618ee29",
+    "/index.html": "f310fc24de761e21e37a5cd90dd914970ec2b38a",
+    "/main.54a353bb81c479cf.js": "e8bd3842665bea18d839c7db578acdcd52495d1c",
+    "/manifest.webmanifest": "6af9079b2021448a5dd952699d3dacd685f49930",
+    "/polyfills.6c3dfac33f284c84.js": "a5ce4b505b370f92f9d465a852df1303d656b048",
+    "/runtime.53e748b52bf01fe4.js": "e060e4c241096d04d24cea03915fe0d52d3fa141",
+    "/styles.823a63d5d549c434.css": "0d0ca73d883e23c2f2c0ab7691aba2400a820ed8"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
