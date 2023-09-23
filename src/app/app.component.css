@@ -1,4 +1,5 @@
-* {
+body {
+  background-color: #6495ed;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -17,7 +18,8 @@
   margin-bottom: 5px;
   margin-left: 50px;
   color: #3578f3;
-  font-weight: 800;
+  font-weight: 700;
+  white-space: nowrap;
   height: 10px;
   z-index: 2;
 }
@@ -38,7 +40,8 @@
 .card-header {
   padding: 10px;
   font-size: 1.3em;
-  font-weight: 200;
+  font-weight: 100;
+  white-space: nowrap;
   box-shadow: 0 3px 0px rgba(10, 10, 10, 0.1);
 }
 
@@ -52,7 +55,7 @@
 }
 
 .card-header .is-fullwidth {
-  width: calc(100% + 1.5rem);
+  width: 100%;
 }
 
 .card-header a {
@@ -73,12 +76,14 @@
 }
 
 .card-content .heading {
-  font-weight: 900;
+  font-weight: 600;
   font-size: 1em;
+  text-transform: uppercase;
   text-align: center;
   text-indent: 0;
   padding-right: 8%;
   padding-left: 8%;
+  padding-bottom: .1rem;
 }
 
 .card-content .missing {
@@ -100,7 +105,8 @@
   color: darkgrey;
   font-size: small;
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
+  border-top: 1px solid #dbdbdb;
 }
 
 :host>>>.drop-cap>p:first-child:first-letter {
@@ -109,7 +115,7 @@
   font-size: 3.3em;
   line-height: 0.5;
   color: #ed9f64;
-  padding: 10px 8px 0 40px
+  padding: 5px 5px 0 40px
 }
 
 :host>>>.drop-cap>p:first-child {
@@ -118,17 +124,32 @@
 
 .button {
   position: fixed;
+  display: inline-flex;
   border-radius: 50px;
   opacity: 0.2;
   top: 45%;
+  font-size: 1.5rem;
   height: 100px;
   width: 100px;
+  background-color: #3273dc;
+  color: #fff;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  vertical-align: top;
+  padding-right: 0.75em;
+  text-align: center;
+  margin: 0;
+  cursor: pointer;
 }
 
 .button.left {
   border-radius: 0 50px 50px 0;
   clip: rect(0, 100px, 100px, 55px);
   margin-left: -45px;
+  padding-left: 1em;
   padding-right: 0;
 }
 
@@ -136,10 +157,24 @@
   border-radius: 50px 0 0 50px;
   clip: rect(0, 45px, 100px, 0px);
   right: 0px;
-  margin-right: calc(((100vw - 768px) / 2) - 53px);
+  margin-right: calc(((100vw - 768px) / 2) - 48px);
   padding-left: 0;
+  padding-right: 1em;
 }
 
 .button.right.is-mobile {
   margin-right: -45px;
+}
+
+@media screen and (max-width: 768px) {
+  .is-hidden-mobile {
+    display: none !important
+  }
+}
+
+@media print,
+screen and (min-width: 769px) {
+  .is-hidden-tablet {
+    display: none !important
+  }
 }

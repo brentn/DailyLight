@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 @font-face {
   font-family: 'Montserrat';
-  src: url('../assets/Montserrat-VariableFont_wwght.ttf') format('truetype');
+  src: url('src/assets/Montserrat-VariableFont_wght.ttf') format('truetype');
+}
+
+body {
+  background-color: #6495ed;
+  font-family: 'Montserrat', sans-serif;
 }
