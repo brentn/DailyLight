@@ -4,7 +4,7 @@ import { ICard } from './iCard';
 import { DatePipe } from '@angular/common';
 import * as dailyLightData from '../assets/DailyLight.json';
 
-const EVENING_HOUR = 17;
+const EVENING_HOUR = 16;
 
 @Component({
   selector: 'app-root',
