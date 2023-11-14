@@ -5,7 +5,7 @@
     <div class="card-header">
       <div class="columns is-fullwidth is-mobile">
         <span class="column">{{cardDate | date:'MMMM d'}}</span>
-        <a class='column is-info has-text-right' [innerHTML]="isMorning?'morning':'evening'"
+        <a class='column is-info has-text-right cursor-pointer' [innerHTML]="isMorning?'morning':'evening'"
           (click)="toggleMorning()"></a>
       </div>
     </div>

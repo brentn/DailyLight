@@ -166,6 +166,10 @@ body {
   margin-right: -45px;
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .is-hidden-mobile {
     display: none !important
