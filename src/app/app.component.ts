@@ -38,7 +38,6 @@ export class AppComponent {
   update(): void {
     this.transitioning = !this.transitioning;
     const dateString: string | null = this.datePipe.transform(this.cardDate, 'MMMM d');
-    console.log('HERE', dateString, this.cards)
     this.card = this.cards.find((card: ICard) => card.date == dateString)
     if (this.isMorning) {
       if (!(this.card?.morning && this.card.morning.text.length > 1)) { this.card = undefined; }
