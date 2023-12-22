@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1703174924882,
+  "timestamp": 1703283956229,
   "index": "https://brentn.github.io/DailyLight/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "https://brentn.github.io/DailyLight/index.html",
-        "https://brentn.github.io/DailyLight/main.c4aea6ebd7a802c2.js",
+        "https://brentn.github.io/DailyLight/main.e65a431555c5e39d.js",
         "https://brentn.github.io/DailyLight/manifest.webmanifest",
         "https://brentn.github.io/DailyLight/polyfills.b041e4c36aa1daf5.js",
         "https://brentn.github.io/DailyLight/runtime.53e748b52bf01fe4.js",
@@ -42,12 +42,12 @@
   "hashTable": {
     "https://brentn.github.io/DailyLight/Montserrat-VariableFont_wght.f595c38f5aaaeca5.ttf": "debd10e57fb07dd24187c41679885129449c1435",
     "https://brentn.github.io/DailyLight/assets/DailyLight.NIV.json": "073837015687653321cde559235a74eeb80334c2",
-    "https://brentn.github.io/DailyLight/assets/DailyLight.json": "2c6551c3ec84d771aa53b7e8438e8e8d509c7f38",
+    "https://brentn.github.io/DailyLight/assets/DailyLight.json": "b837d0b3b25190f8c5173ffb860cd39959ff7eca",
     "https://brentn.github.io/DailyLight/assets/Montserrat-VariableFont_wght.ttf": "debd10e57fb07dd24187c41679885129449c1435",
     "https://brentn.github.io/DailyLight/assets/icons/icon-192x192.png": "ea83e40de4437d03c9346c7eba7d05cb5c0624ac",
     "https://brentn.github.io/DailyLight/assets/icons/icon-96x96.png": "e8b04a59ebe4e69f7165e57ff52af3430618ee29",
-    "https://brentn.github.io/DailyLight/index.html": "d1a0ca67071788f21589846313075bb9b3d360c9",
-    "https://brentn.github.io/DailyLight/main.c4aea6ebd7a802c2.js": "3286596f99cf5ed5caf3c208d1171f1a8dff9f08",
+    "https://brentn.github.io/DailyLight/index.html": "1fccd4ac54794432102a567d173323a94f094eb8",
+    "https://brentn.github.io/DailyLight/main.e65a431555c5e39d.js": "1d0cb1bfda1904c345c4a1587cefb139a6d5fdf2",
     "https://brentn.github.io/DailyLight/manifest.webmanifest": "6af9079b2021448a5dd952699d3dacd685f49930",
     "https://brentn.github.io/DailyLight/polyfills.b041e4c36aa1daf5.js": "387a5d07606d7f07e9d20c66ead5e814d1df7f70",
     "https://brentn.github.io/DailyLight/runtime.53e748b52bf01fe4.js": "e060e4c241096d04d24cea03915fe0d52d3fa141",
