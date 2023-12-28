@@ -23,8 +23,10 @@
       </div>
     </div>
 
-    <div *ngIf="card" class="card-footer">
-      <span class="is-small" [innerHTML]="isMorning?card.morning.references:card.evening.references"></span>
+    <div class="card-footer is-fullwidth">
+      <div class="references is-small" [innerHTML]="isMorning?card?.morning?.references:card?.evening?.references">
+      </div>
+      <a class="version cursor-pointer" (click)="onChangeVersion() ">{{version}}</a>
     </div>
   </div>
 

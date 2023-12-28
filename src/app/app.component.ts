@@ -2,7 +2,8 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { Component } from '@angular/core';
 import { ICard } from './iCard';
 import { DatePipe } from '@angular/common';
-import * as dailyLightData from '../assets/DailyLight.json';
+import * as kjvVersion from '../assets/DailyLight.json';
+import * as nivVersion from '../assets/DailyLight.NIV.json';
 
 const EVENING_HOUR = 16;
 
@@ -23,7 +24,8 @@ const EVENING_HOUR = 16;
 })
 export class AppComponent {
   title: string = 'Daily Light';
-  cards: ICard[] = dailyLightData?.days;
+  version: 'KJV' | 'NIV' = 'KJV';
+  cards: ICard[] = kjvVersion?.days;
   transitioning: boolean = false;
   cardDate: Date = new Date();
   isMorning: boolean = new Date().getHours() < EVENING_HOUR;
@@ -58,6 +60,12 @@ export class AppComponent {
 
   toggleMorning(): void {
     this.isMorning = !this.isMorning;
+    this.update();
+  }
+
+  onChangeVersion(): void {
+    this.version = (this.version === 'KJV') ? 'NIV' : 'KJV';
+    this.cards = (this.version === 'KJV') ? kjvVersion?.days : nivVersion?.days;
     this.update();
   }
 }
