@@ -10,7 +10,8 @@
       </div>
     </div>
 
-    <div *ngIf="card" class="card-content" [@transition]="transitioning">
+    <div *ngIf="card" class="card-content" [@transition]="transitioning" (touchstart)="swipe($event, 'start')"
+      (touchend)="swipe($event, 'end')">
       <section class="heading">
         <p [innerHTML]="isMorning?card.morning.heading:card.evening.heading"></p>
       </section>
@@ -30,8 +31,9 @@
     </div>
   </div>
 
-  <button class="left button" (click)="priorDay()">&nbsp;&lt;</button>
-  <button class="right button is-hidden-mobile" (click)="nextDay()">&gt;&nbsp;</button>
-  <button class="right button is-mobile is-hidden-tablet" (click)="nextDay()">&gt;&nbsp;</button>
+  <button *ngIf="!isTouchDevice()" class="left button" (click)="priorDay()">&nbsp;&lt;</button>
+  <button *ngIf="!isTouchDevice()" class="right button is-hidden-mobile" (click)="nextDay()">&gt;&nbsp;</button>
+  <button *ngIf="!isTouchDevice()" class="right button is-mobile is-hidden-tablet"
+    (click)="nextDay()">&gt;&nbsp;</button>
 
 </div>
