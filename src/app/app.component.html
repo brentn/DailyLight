@@ -1,7 +1,7 @@
 <div class="content">
   <h1 class="title">{{title}}</h1>
 
-  <div class="card">
+  <div class="card" (touchstart)="swipe($event, 'start')" (touchend)="swipe($event, 'end')">
     <div class="card-header">
       <div class="columns is-fullwidth is-mobile">
         <span class="column">{{cardDate | date:'MMMM d'}}</span>
@@ -10,8 +10,7 @@
       </div>
     </div>
 
-    <div *ngIf="card" class="card-content" [@transition]="transitioning" (touchstart)="swipe($event, 'start')"
-      (touchend)="swipe($event, 'end')">
+    <div *ngIf="card" class="card-content transition {{transition}}">
       <section class="heading">
         <p [innerHTML]="isMorning?card.morning.heading:card.evening.heading"></p>
       </section>

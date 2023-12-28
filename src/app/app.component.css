@@ -32,6 +32,7 @@ body {
   padding: 1em;
   margin: 2em 10px 4em;
   background-color: #e8ebf9;
+  overflow-x: hidden;
   box-shadow: 4px 8px 8px;
   -webkit-box-shadow: 4px 4px 8px;
   -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .3);
@@ -179,6 +180,24 @@ body {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+.transition {
+  position: relative;
+  left: 0;
+  opacity: 1;
+}
+
+.transition.left {
+  left: -200vw;
+  opacity: 0;
+  transition: left .3s ease-in, opacity .5s;
+}
+
+.transition.right {
+  left: 200vw;
+  opacity: 0;
+  transition: left .3s ease-in, opacity .5s;
 }
 
 @media screen and (max-width: 768px) {

@@ -1,5 +1,5 @@
 import { trigger, transition, style, animate } from '@angular/animations';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { ICard } from './iCard';
 import { DatePipe } from '@angular/common';
 import * as kjvVersion from '../assets/DailyLight.json';
@@ -11,16 +11,7 @@ const EVENING_HOUR = 16;
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  animations: [
-    trigger('transition', [
-      transition('* => *', [
-        style({ opacity: 0 }),
-        animate('300ms ease-out'),
-        style({ opacity: 1 }),
-        animate('400ms 150ms ease-in')
-      ])
-    ])
-  ]
+
 })
 export class AppComponent {
   private swipeCoord?: [number, number];
@@ -28,19 +19,18 @@ export class AppComponent {
   title: string = 'Daily Light';
   version: 'KJV' | 'NIV' = 'KJV';
   cards: ICard[] = kjvVersion?.days;
-  transitioning: boolean = false;
+  transition: 'left' | 'right' | undefined;
   cardDate: Date = new Date();
   isMorning: boolean = new Date().getHours() < EVENING_HOUR;
   card: ICard | undefined;
 
-  constructor(private datePipe: DatePipe) { }
+  constructor(private datePipe: DatePipe, private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.update();
   }
 
   update(): void {
-    this.transitioning = !this.transitioning;
     const dateString: string | null = this.datePipe.transform(this.cardDate, 'MMMM d');
     this.card = this.cards.find((card: ICard) => card.date == dateString)
     if (this.isMorning) {
@@ -48,14 +38,22 @@ export class AppComponent {
     } else {
       if (!(this.card?.evening && this.card.evening.text.length > 1)) { this.card = undefined; }
     }
+    setTimeout(() => {
+      this.transition = undefined;
+      this.cd.detectChanges();
+    }, 300);
   }
 
   priorDay(): void {
+    this.transition = 'right';
+    this.cd.detectChanges();
     this.cardDate = new Date(this.cardDate.getTime() - 86400000);
     this.update();
   }
 
   nextDay(): void {
+    this.transition = 'left';
+    this.cd.detectChanges();
     this.cardDate = new Date(this.cardDate.getTime() + 86400000);
     this.update();
   }
