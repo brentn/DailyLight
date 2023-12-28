@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1703786384795,
+  "timestamp": 1703788564414,
   "index": "https://brentn.github.io/DailyLight/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "https://brentn.github.io/DailyLight/index.html",
-        "https://brentn.github.io/DailyLight/main.383337c82ac80cd5.js",
+        "https://brentn.github.io/DailyLight/main.505f00c7bcd24c53.js",
         "https://brentn.github.io/DailyLight/manifest.webmanifest",
         "https://brentn.github.io/DailyLight/polyfills.b041e4c36aa1daf5.js",
         "https://brentn.github.io/DailyLight/runtime.53e748b52bf01fe4.js",
@@ -46,8 +46,8 @@
     "https://brentn.github.io/DailyLight/assets/Montserrat-VariableFont_wght.ttf": "debd10e57fb07dd24187c41679885129449c1435",
     "https://brentn.github.io/DailyLight/assets/icons/icon-192x192.png": "ea83e40de4437d03c9346c7eba7d05cb5c0624ac",
     "https://brentn.github.io/DailyLight/assets/icons/icon-96x96.png": "e8b04a59ebe4e69f7165e57ff52af3430618ee29",
-    "https://brentn.github.io/DailyLight/index.html": "b7c3ed6acbff8771537aefa9909db7e633aaeb9c",
-    "https://brentn.github.io/DailyLight/main.383337c82ac80cd5.js": "65a4e99a326ae1ec77cb11ac9fadc92d06c7b3cc",
+    "https://brentn.github.io/DailyLight/index.html": "8b48d8bdaebf77fffdbf9d561f312a78440d72ca",
+    "https://brentn.github.io/DailyLight/main.505f00c7bcd24c53.js": "e737fef89614b4699ff877c2fa2a4c69c39b35d2",
     "https://brentn.github.io/DailyLight/manifest.webmanifest": "6af9079b2021448a5dd952699d3dacd685f49930",
     "https://brentn.github.io/DailyLight/polyfills.b041e4c36aa1daf5.js": "387a5d07606d7f07e9d20c66ead5e814d1df7f70",
     "https://brentn.github.io/DailyLight/runtime.53e748b52bf01fe4.js": "e060e4c241096d04d24cea03915fe0d52d3fa141",
