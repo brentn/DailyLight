@@ -16,15 +16,19 @@ const EVENING_HOUR = 16;
 export class AppComponent {
   private swipeCoord?: [number, number];
   private swipeTime?: number;
+  private versionKey = 'Version';
   title: string = 'Daily Light';
-  version: 'KJV' | 'NIV' = 'KJV';
+  version: 'KJV' | 'NIV';
   cards: ICard[] = kjvVersion?.days;
   transition: 'left' | 'right' | undefined;
   cardDate: Date = new Date();
   isMorning: boolean = new Date().getHours() < EVENING_HOUR;
   card: ICard | undefined;
 
-  constructor(private datePipe: DatePipe, private cd: ChangeDetectorRef) { }
+  constructor(private datePipe: DatePipe, private cd: ChangeDetectorRef) {
+    (screen.orientation as any).lock('natural');
+    this.version = (localStorage.getItem(this.versionKey) as 'KJV' | 'NIV') ?? 'KJV';
+  }
 
   ngOnInit() {
     this.update();
@@ -65,6 +69,7 @@ export class AppComponent {
 
   onChangeVersion(): void {
     this.version = (this.version === 'KJV') ? 'NIV' : 'KJV';
+    localStorage.setItem(this.versionKey, this.version);
     this.cards = (this.version === 'KJV') ? kjvVersion?.days : nivVersion?.days;
     this.update();
   }
