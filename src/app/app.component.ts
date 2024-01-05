@@ -26,7 +26,6 @@ export class AppComponent {
   card: ICard | undefined;
 
   constructor(private datePipe: DatePipe, private cd: ChangeDetectorRef) {
-    (screen.orientation as any).lock('natural');
     this.version = (localStorage.getItem(this.versionKey) as 'KJV' | 'NIV') ?? 'KJV';
   }
 
