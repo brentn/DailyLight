@@ -19,7 +19,7 @@ export class AppComponent {
   private versionKey = 'Version';
   title: string = 'Daily Light';
   version: 'KJV' | 'NIV';
-  cards: ICard[] = kjvVersion?.days;
+  cards: ICard[];
   transition: 'left' | 'right' | undefined;
   cardDate: Date = new Date();
   isMorning: boolean = new Date().getHours() < EVENING_HOUR;
@@ -27,6 +27,7 @@ export class AppComponent {
 
   constructor(private datePipe: DatePipe, private cd: ChangeDetectorRef) {
     this.version = (localStorage.getItem(this.versionKey) as 'KJV' | 'NIV') ?? 'KJV';
+    this.cards = (this.version === 'KJV') ? kjvVersion?.days : nivVersion?.days;
   }
 
   ngOnInit() {
