@@ -4,7 +4,7 @@
   "theme_color": "cornflowerblue",
   "background_color": "cornflowerblue",
   "display": "standalone",
-  "orientation": "natural",
+  "orientation": "portrait",
   "scope": "./",
   "start_url": "./",
   "icons": [
