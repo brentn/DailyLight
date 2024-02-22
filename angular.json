@@ -63,10 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "DailyLight:build:production"
+              "buildTarget": "DailyLight:build:production"
             },
             "development": {
-              "browserTarget": "DailyLight:build:development"
+              "buildTarget": "DailyLight:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -74,7 +74,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "DailyLight:build"
+            "buildTarget": "DailyLight:build"
           }
         },
         "test": {
