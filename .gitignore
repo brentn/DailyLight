@@ -2,7 +2,7 @@
 
 # Compiled output
 !/dist
-!/docs
+/docs #Need this to serve site from github.io
 /tmp
 /out-tsc
 /bazel-out
