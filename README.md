@@ -5,6 +5,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Deploy this by
  - change to gh-pages branch (and merge changes if necessary)
- - ng build -c production --base-href https://brentn.github.io/DailyLight/
- - ngh --dir=dist/daily-light
- - possibly delete files that were created (git reset --hard)
+ - ng build --output-path docs --base-href /DailyLight/
+ - commit and push
