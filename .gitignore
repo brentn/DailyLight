@@ -1,5 +1,6 @@
 # Ignore everything
 *
+node_modules/.cache/*
 
 # But not these files...
 !.gitignore
