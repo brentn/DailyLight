@@ -1,0 +1,75 @@
+{
+  "configVersion": 1,
+  "timestamp": 1719100527514,
+  "index": "/DailyLight/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/DailyLight/index.html",
+        "/DailyLight/main.5d42a4393537a6c1.js",
+        "/DailyLight/manifest.webmanifest",
+        "/DailyLight/polyfills.25761f2e8971fbf7.js",
+        "/DailyLight/runtime.acb88ffccca07d04.js",
+        "/DailyLight/styles.823a63d5d549c434.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/DailyLight/Montserrat-VariableFont_wght.f595c38f5aaaeca5.ttf",
+        "/DailyLight/assets/DailyLight.NIV.json",
+        "/DailyLight/assets/DailyLight.json",
+        "/DailyLight/assets/Montserrat-VariableFont_wght.ttf",
+        "/DailyLight/assets/icons/icon-192x192.png",
+        "/DailyLight/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/DailyLight/Montserrat-VariableFont_wght.f595c38f5aaaeca5.ttf": "debd10e57fb07dd24187c41679885129449c1435",
+    "/DailyLight/assets/DailyLight.NIV.json": "006565dc12c5b04b155e1c6444f4d9da286970a6",
+    "/DailyLight/assets/DailyLight.json": "ac7f27e6f65ccecaddbd14b41403f88ef0effa4e",
+    "/DailyLight/assets/Montserrat-VariableFont_wght.ttf": "debd10e57fb07dd24187c41679885129449c1435",
+    "/DailyLight/assets/icons/icon-192x192.png": "ea83e40de4437d03c9346c7eba7d05cb5c0624ac",
+    "/DailyLight/assets/icons/icon-96x96.png": "e8b04a59ebe4e69f7165e57ff52af3430618ee29",
+    "/DailyLight/index.html": "f58aeabc948d237755264b4db4624785a6288b05",
+    "/DailyLight/main.5d42a4393537a6c1.js": "154ba273a25727255c48ed67340f382b56b4e9ed",
+    "/DailyLight/manifest.webmanifest": "41adb770c7ee22244dca92b993aa430d9f0b8412",
+    "/DailyLight/polyfills.25761f2e8971fbf7.js": "f4a82eaa90111163cfb5fd9114c0fdcf553af858",
+    "/DailyLight/runtime.acb88ffccca07d04.js": "7dfb620d8cac62109075c34edd8a8116c148320b",
+    "/DailyLight/styles.823a63d5d549c434.css": "0d0ca73d883e23c2f2c0ab7691aba2400a820ed8"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
