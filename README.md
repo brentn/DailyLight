@@ -4,6 +4,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 # Deploy this by
- - change to gh-pages branch (and merge changes if necessary)
  - ng build --output-path docs --base-href /DailyLight/
  - commit and push
