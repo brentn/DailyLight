@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1719930416758,
+  "timestamp": 1720490350435,
   "index": "/DailyLight/index.html",
   "assetGroups": [
     {
@@ -12,7 +12,7 @@
       },
       "urls": [
         "/DailyLight/index.html",
-        "/DailyLight/main.90a0a19cf1357764.js",
+        "/DailyLight/main.d006fcda0cb4b33f.js",
         "/DailyLight/manifest.webmanifest",
         "/DailyLight/polyfills.25761f2e8971fbf7.js",
         "/DailyLight/runtime.acb88ffccca07d04.js",
@@ -41,13 +41,13 @@
   "dataGroups": [],
   "hashTable": {
     "/DailyLight/Montserrat-VariableFont_wght.f595c38f5aaaeca5.ttf": "debd10e57fb07dd24187c41679885129449c1435",
-    "/DailyLight/assets/DailyLight.NIV.json": "b3437f81c60b8b0f94fd7a049d7da908d377cdd5",
-    "/DailyLight/assets/DailyLight.json": "d6b4a058233a5e6ebc5ae57b356479d43ce0ab06",
+    "/DailyLight/assets/DailyLight.NIV.json": "e054f23a9708c4be83844ce7b2de5bf97fbe3f0c",
+    "/DailyLight/assets/DailyLight.json": "9c1edb9d1f5ef85a79740c1c23bca6d9e2477482",
     "/DailyLight/assets/Montserrat-VariableFont_wght.ttf": "debd10e57fb07dd24187c41679885129449c1435",
     "/DailyLight/assets/icons/icon-192x192.png": "ea83e40de4437d03c9346c7eba7d05cb5c0624ac",
     "/DailyLight/assets/icons/icon-96x96.png": "e8b04a59ebe4e69f7165e57ff52af3430618ee29",
-    "/DailyLight/index.html": "71ff1465701ba2105b0fc229badfd70d67fe257f",
-    "/DailyLight/main.90a0a19cf1357764.js": "5c39f6b923ad2b7f1ce772a20e190894090f3814",
+    "/DailyLight/index.html": "f347b3df62ffe1c830842f5e58ea5160feb0aa78",
+    "/DailyLight/main.d006fcda0cb4b33f.js": "49a49caa8acc32aea0a3a948994b2bd47a3d138f",
     "/DailyLight/manifest.webmanifest": "41adb770c7ee22244dca92b993aa430d9f0b8412",
     "/DailyLight/polyfills.25761f2e8971fbf7.js": "f4a82eaa90111163cfb5fd9114c0fdcf553af858",
     "/DailyLight/runtime.acb88ffccca07d04.js": "7dfb620d8cac62109075c34edd8a8116c148320b",
