@@ -1,0 +1,75 @@
+{
+  "configVersion": 1,
+  "timestamp": 1738340130326,
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/index.html",
+        "/main.ea4d4af2d9f820d0.js",
+        "/manifest.webmanifest",
+        "/polyfills.25761f2e8971fbf7.js",
+        "/runtime.acb88ffccca07d04.js",
+        "/styles.823a63d5d549c434.css"
+      ],
+      "patterns": []
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "cacheQueryOptions": {
+        "ignoreVary": true
+      },
+      "urls": [
+        "/Montserrat-VariableFont_wght.f595c38f5aaaeca5.ttf",
+        "/assets/DailyLight.NIV.json",
+        "/assets/DailyLight.json",
+        "/assets/Montserrat-VariableFont_wght.ttf",
+        "/assets/icons/icon-192x192.png",
+        "/assets/icons/icon-96x96.png"
+      ],
+      "patterns": []
+    }
+  ],
+  "dataGroups": [],
+  "hashTable": {
+    "/Montserrat-VariableFont_wght.f595c38f5aaaeca5.ttf": "debd10e57fb07dd24187c41679885129449c1435",
+    "/assets/DailyLight.NIV.json": "33188ed1cef06f9696fba30bfa6c70a37f244f4a",
+    "/assets/DailyLight.json": "f495bc1dceced2b8565650a3d7af47904f4b56a9",
+    "/assets/Montserrat-VariableFont_wght.ttf": "debd10e57fb07dd24187c41679885129449c1435",
+    "/assets/icons/icon-192x192.png": "ea83e40de4437d03c9346c7eba7d05cb5c0624ac",
+    "/assets/icons/icon-96x96.png": "e8b04a59ebe4e69f7165e57ff52af3430618ee29",
+    "/index.html": "56ac4356b666e65b47efffa8d383138b43ac3ed8",
+    "/main.ea4d4af2d9f820d0.js": "c7befa4ea385d44f5575a36231071e4eeba8e2ca",
+    "/manifest.webmanifest": "41adb770c7ee22244dca92b993aa430d9f0b8412",
+    "/polyfills.25761f2e8971fbf7.js": "f4a82eaa90111163cfb5fd9114c0fdcf553af858",
+    "/runtime.acb88ffccca07d04.js": "7dfb620d8cac62109075c34edd8a8116c148320b",
+    "/styles.823a63d5d549c434.css": "0d0ca73d883e23c2f2c0ab7691aba2400a820ed8"
+  },
+  "navigationUrls": [
+    {
+      "positive": true,
+      "regex": "^\\/.*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*\\.[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*$"
+    },
+    {
+      "positive": false,
+      "regex": "^\\/(?:.+\\/)?[^/]*__[^/]*\\/.*$"
+    }
+  ],
+  "navigationRequestStrategy": "performance"
+}
